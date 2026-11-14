@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Pearl Shah ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #35101d 0%, transparent 55%),
+    #080608;
+  color: #eadde0;
+  font-family: 'Cormorant Garamond', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  padding: 65px 35px;
+  text-align: center;
+  border: 1px solid #663044;
+  background: rgba(15, 9, 13, .94);
+  box-shadow: 0 0 70px rgba(100, 20, 48, .18);
+  position: relative;
+}
+
+.small {
+  font: 10px 'Montserrat', sans-serif;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #b77a8d;
+}
+
+.rose {
+  font-size: 30px;
+  color: #98465f;
+  margin: 30px 0 15px;
+}
+
+h1 {
+  font-size: clamp(55px, 11vw, 90px);
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 span { color: #a95470; font-style: italic; }
+
+.subtitle {
+  font: 10px 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  color: #a9959c;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.line {
+  width: 90px;
+  height: 1px;
+  background: #92506a;
+  margin: 35px auto;
+}
+
+.quote {
+  font-size: 25px;
+  font-style: italic;
+  line-height: 1.5;
+  color: #d5bfc6;
+  max-width: 470px;
+  margin: auto;
+}
+
+button {
+  margin-top: 35px;
+  padding: 15px 25px;
+  background: transparent;
+  border: 1px solid #a45b73;
+  color: #e7cbd3;
+  font: 10px 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: #4a1729;
+  box-shadow: 0 0 20px #4a172955;
+}
+
+.letter {
+  display: none;
+  text-align: left;
+  max-width: 490px;
+  margin: 40px auto 0;
+  font: 13px/2 'Montserrat', sans-serif;
+  color: #d0bdc3;
+  animation: appear 1s ease;
+}
+
+.letter.show { display: block; }
+
+.letter .dear {
+  font: italic 25px 'Cormorant Garamond', serif;
+  color: #bd7189;
+}
+
+.signature {
+  text-align: right;
+  font: italic 23px 'Cormorant Garamond', serif;
+  color: #bd7189;
+}
+
+footer {
+  margin-top: 45px;
+  font: 9px 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  color: #76505e;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+  <div class="small">A little something, made for you</div>
+
+  <div class="rose">❦</div>
+
+  <h1>For <span>Pearl</span></h1>
+
+  <div class="subtitle">Pearl Shah · November 12</div>
+
+  <div class="line"></div>
+
+  <p class="quote">
+    "Some people make ordinary moments feel like memories worth keeping."
+  </p>
+
+  <div class="subtitle">A very happy belated birthday</div>
+
+  <button onclick="openLetter()" id="letterButton">
+    OPEN YOUR LETTER ♡
+  </button>
+
+  <section class="letter" id="letter">
+    <p class="dear">Dear Pearl,</p>
+
+    <p>
+      Happy birthday, Pearl! Even if this wish comes a little late,
+      I hope you know that you deserve to be celebrated every single day.
+    </p>
+
+    <p>
+      May this new chapter bring you beautiful surprises, endless
+      laughter, unforgettable memories and all the happiness your
+      heart can hold.
+    </p>
+
+    <p>
+      I hope you never lose the little things that make you who you are.
+      Keep collecting moments, making memories and being wonderfully you.
+    </p>
+
+    <p>
+      Here's to another year of stories waiting to be written.
+      May yours be a beautiful one.
+    </p>
+
+    <p class="signature">
+      With love,<br>
+      Anavia ♡
+    </p>
+  </section>
+
+  <footer>WRITTEN UNDER A MIDNIGHT SKY · 2026</footer>
+
+</main>
+
+<script>
+function openLetter() {
+  const letter = document.getElementById("letter");
+  const button = document.getElementById("letterButton");
+
+  letter.classList.toggle("show");
+
+  button.textContent = letter.classList.contains("show")
+    ? "CLOSE YOUR LETTER ♡"
+    : "OPEN YOUR LETTER ♡";
+}
+</script>
+
+</body>
+</html>
