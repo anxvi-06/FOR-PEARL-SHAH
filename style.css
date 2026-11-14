@@ -103,3 +103,28 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
 .archive-extra-links{display:flex;justify-content:center;margin:60px auto 20px}
 @media(max-width:800px){main>.section,.hero{min-height:calc(100svh - 155px)}.section{padding:115px 35px 85px}}
 @media(prefers-reduced-motion:reduce){.smoke-screen.play,.smoke-screen.arrive{animation-duration:.01ms}}
+
+
+/* SOFTLY BLENDED IMAGE ASSETS */
+.wallpaper{
+  background-blend-mode:soft-light,normal;
+}
+.lace{
+  opacity:.28;
+  mix-blend-mode:screen;
+  filter:invert(1) sepia(.28) saturate(.65) brightness(.78);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 91%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 9%,#000 91%,transparent 100%);
+}
+.hero-rose img,.invite-rose{
+  mix-blend-mode:screen;
+  opacity:.72;
+  filter:sepia(.16) saturate(.78) contrast(1.04) drop-shadow(0 12px 22px #0009);
+}
+.hero-rose-one{opacity:.68}
+.hero-rose-two{opacity:.43}
+.invite-rose{opacity:.68}
+@media(max-width:800px){
+  .lace{opacity:.2}
+  .hero-rose img,.invite-rose{opacity:.62}
+}
