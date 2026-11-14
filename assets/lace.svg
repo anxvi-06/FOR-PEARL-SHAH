@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="42" height="210" viewBox="0 0 42 210"><g fill="none" stroke="#c3a77a" stroke-width=".8" opacity=".8"><path d="M21 0V210"/><path d="M21 5C2 5 2 25 21 25S40 45 21 45 2 65 21 65 40 85 21 85 2 105 21 105 40 125 21 125 2 145 21 145 40 165 21 165 2 185 21 185 40 205 21 205"/><circle cx="21" cy="15" r="8"/><circle cx="21" cy="55" r="8"/><circle cx="21" cy="95" r="8"/><circle cx="21" cy="135" r="8"/><circle cx="21" cy="175" r="8"/><circle cx="21" cy="195" r="8"/><path d="M21 7C9 0 3 12 13 19M21 7c12-7 18 5 8 12M21 47C9 40 3 52 13 59M21 47c12-7 18 5 8 12M21 87C9 80 3 92 13 99M21 87c12-7 18 5 8 12M21 127c-12-7-18 5-8 12m8-12c12-7 18 5 8 12M21 167c-12-7-18 5-8 12m8-12c12-7 18 5 8 12"/></g><g fill="#c3a77a" opacity=".7"><circle cx="21" cy="15" r="1.6"/><circle cx="21" cy="55" r="1.6"/><circle cx="21" cy="95" r="1.6"/><circle cx="21" cy="135" r="1.6"/><circle cx="21" cy="175" r="1.6"/></g></svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <image
+    href="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L3Jhd3BpeGVsb2ZmaWNlOF9ibGFja19sYWNlX2JvcmRlcl9kYXJrX2NvcXVldHRlX2JsYWNrX3N0YXJfdGllZF9kNTQ0YjlkOC1lMDMzLTQzZWEtOGE1YS1iOWI3ZjJkYjI4YTYucG5n.png"
+    x="0"
+    y="0"
+    width="500"
+    height="500"
+    preserveAspectRatio="xMidYMid meet"
+  />
+</svg>
