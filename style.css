@@ -74,58 +74,32 @@ footer{height:90px;border-top:1px solid #b89a6824;display:flex;align-items:cente
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 
-/* TRUE PAGE-TO-PAGE EXPERIENCE */
-main .section{display:none;min-height:calc(100svh - 90px);animation:pageReveal .75s ease both}
-main .section.is-active{display:flex}
-main .section.is-leaving{display:flex;pointer-events:none}
-@keyframes pageReveal{from{opacity:0;transform:translateY(18px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
-body.page-transitioning{overflow:hidden}
-.smoke-screen{z-index:50}
-.smoke-screen span{mix-blend-mode:screen}
-@media(max-width:800px){main .section{min-height:calc(100svh - 65px)}}
 
-
-/* HIGH-VISIBILITY SMOKY WIND PAGE TRANSITION */
-.smoke-screen{
-  z-index:50;
-  inset:-12%;
-  opacity:0;
-  overflow:hidden;
-  isolation:isolate;
-}
-.smoke-screen:before{
-  content:"";
-  position:absolute;
-  inset:-18%;
-  opacity:0;
-  transform:translateX(-85%) scale(1.25) rotate(-8deg);
-  background:
-    radial-gradient(ellipse at 18% 48%,#a13a55 0%,#692039d9 17%,transparent 43%),
-    radial-gradient(ellipse at 42% 28%,#54162dcc 0%,#32101fc9 28%,transparent 57%),
-    radial-gradient(ellipse at 67% 65%,#8b2a45d9 0%,#421225d9 25%,transparent 55%),
-    radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 50%);
-  filter:blur(24px);
-  mix-blend-mode:screen;
-}
-.smoke-screen.play{visibility:visible;animation:smokeCurtain 1.7s ease-in-out both}
-.smoke-screen.play:before{animation:smokeWind 1.7s cubic-bezier(.65,0,.25,1) both}
-.smoke-screen.play span:nth-child(1){animation:smokeLeft 1.7s ease-in-out both}
-.smoke-screen.play span:nth-child(2){animation:smokeRight 1.7s ease-in-out both}
-.smoke-screen.play span:nth-child(3){animation:smokeLift 1.7s ease-in-out both}
-@keyframes smokeCurtain{
-  0%{opacity:0}
-  22%{opacity:1}
-  55%{opacity:1}
-  100%{opacity:0}
-}
-@keyframes smokeWind{
-  0%{opacity:0;transform:translateX(-85%) scale(1.25) rotate(-8deg)}
-  28%{opacity:1}
-  58%{opacity:1;transform:translateX(0%) scale(1.5) rotate(3deg)}
-  100%{opacity:0;transform:translateX(85%) scale(1.25) rotate(9deg)}
-}
-@keyframes smokeLift{
-  0%{transform:translate(-25vw,25vh) scale(.7)}
-  55%{transform:translate(12vw,-8vh) scale(1.35)}
-  100%{transform:translate(45vw,-25vh) scale(.9)}
-}
+/* ACTUAL MULTI-PAGE NAVIGATION + SMOKY WIND WIPE */
+body{min-height:100vh}
+main>.section{min-height:calc(100svh - 166px)}
+.hero{min-height:calc(100svh - 166px)}
+.scroll-cue{display:none}
+.smoke-screen{z-index:80;inset:-12%;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden;isolation:isolate}
+.smoke-screen:before{content:"";position:absolute;inset:-18%;opacity:0;background:
+radial-gradient(ellipse at 18% 48%,#a13a55 0%,#692039ed 18%,transparent 45%),
+radial-gradient(ellipse at 42% 28%,#54162df2 0%,#32101fee 30%,transparent 58%),
+radial-gradient(ellipse at 67% 65%,#8b2a45ed 0%,#421225ee 27%,transparent 56%),
+radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px);mix-blend-mode:screen}
+.smoke-screen span{position:absolute;width:78vw;height:60vw;max-height:760px;filter:blur(48px);border-radius:50%;background:radial-gradient(ellipse,#a13a55d9 0%,#54162de8 30%,#17080f99 62%,transparent 75%)}
+.smoke-screen span:nth-child(1){left:-30%;top:15%}.smoke-screen span:nth-child(2){right:-30%;top:0;transform:scale(1.2)}.smoke-screen span:nth-child(3){left:10%;bottom:-55%;transform:scale(1.4)}
+.smoke-screen.play{visibility:visible;animation:windCover 1.15s ease-in-out both}
+.smoke-screen.play:before{animation:windCloud 1.15s ease-in-out both}
+.smoke-screen.play span:nth-child(1){animation:windLeft 1.15s ease-in-out both}
+.smoke-screen.play span:nth-child(2){animation:windRight 1.15s ease-in-out both}
+.smoke-screen.play span:nth-child(3){animation:windLift 1.15s ease-in-out both}
+.smoke-screen.arrive{visibility:visible;opacity:1;animation:windReveal .9s ease-out both}
+@keyframes windCover{0%{opacity:0}25%,65%{opacity:1}100%{opacity:0}}
+@keyframes windCloud{0%{opacity:0;transform:translateX(-85%) scale(1.15) rotate(-9deg)}30%{opacity:1}65%{opacity:1;transform:translateX(0) scale(1.45) rotate(3deg)}100%{opacity:0;transform:translateX(90%) scale(1.2) rotate(10deg)}}
+@keyframes windLeft{0%{transform:translateX(-30vw)}100%{transform:translateX(95vw) rotate(24deg)}}
+@keyframes windRight{0%{transform:translateX(35vw)}100%{transform:translateX(-95vw) rotate(-24deg)}}
+@keyframes windLift{0%{transform:translate(-25vw,20vh) scale(.7)}60%{transform:translate(12vw,-5vh) scale(1.5)}100%{transform:translate(45vw,-22vh) scale(1)}}
+@keyframes windReveal{0%{opacity:1}100%{opacity:0;visibility:hidden}}
+.archive-extra-links{display:flex;justify-content:center;margin:60px auto 20px}
+@media(max-width:800px){main>.section,.hero{min-height:calc(100svh - 155px)}.section{padding:115px 35px 85px}}
+@media(prefers-reduced-motion:reduce){.smoke-screen.play,.smoke-screen.arrive{animation-duration:.01ms}}
