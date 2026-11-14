@@ -10,294 +10,442 @@
 
 <style>
 :root {
-  --black: #080607;
-  --wine: #410b19;
-  --red: #9e263d;
-  --cream: #e9d9d3;
-  --muted: #a58c8e;
+  --black:#090607;
+  --wine:#42101f;
+  --red:#a13d51;
+  --gold:#b99a70;
+  --cream:#eadbd0;
+  --muted:#b69da0;
 }
 
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
+* { box-sizing:border-box; }
 
 body {
-  margin: 0;
-  background: var(--black);
-  color: var(--cream);
-  font-family: 'Cormorant Garamond', serif;
+  margin:0;
+  background:var(--black);
+  color:var(--cream);
+  font-family:'Cormorant Garamond',serif;
+  overflow-x:hidden;
 }
 
-button { font: inherit; }
-
-#intro {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 25px;
-  background:
-    radial-gradient(ellipse at center, #35101c 0%, #10090d 48%, #050405 100%);
-  transition: opacity 1s, visibility 1s;
+button {
+  cursor:pointer;
+  font-family:'Montserrat',sans-serif;
 }
 
-#intro.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.invitation {
-  width: min(100%, 520px);
-  padding: 55px 25px;
-  border: 1px solid #65303e;
-  box-shadow: 0 0 80px #6b12252a;
+.ornament {
+  color:#a94d60;
+  font-size:25px;
+  letter-spacing:9px;
 }
 
 .eyebrow {
-  font: 9px 'Montserrat', sans-serif;
-  letter-spacing: 5px;
-  color: #c17c8a;
-  text-transform: uppercase;
+  font:9px 'Montserrat',sans-serif;
+  letter-spacing:4px;
+  color:var(--gold);
+  text-transform:uppercase;
 }
 
-.seal {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  margin: 38px auto;
-  background: radial-gradient(circle, #a52d43, #4c0918 70%);
-  border: 1px solid #bd6677;
-  color: #f3d6d4;
-  font-size: 29px;
-  box-shadow: 0 0 35px #8f173e45;
+button.action {
+  background:transparent;
+  color:var(--cream);
+  border:1px solid #87505b;
+  padding:14px 24px;
+  letter-spacing:2px;
+  font-size:9px;
+  transition:.4s;
 }
 
-.invitation h1 {
-  font-size: clamp(43px, 10vw, 68px);
-  font-weight: 400;
-  margin: 15px 0;
-}
-
-.invitation p {
-  font-size: 20px;
-  color: var(--muted);
-  font-style: italic;
-}
-
-.action {
-  background: transparent;
-  border: 1px solid #9e5262;
-  color: var(--cream);
-  padding: 15px 27px;
-  margin-top: 30px;
-  font: 9px 'Montserrat', sans-serif;
-  letter-spacing: 3px;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.action:hover {
-  background: #551324;
-  box-shadow: 0 0 25px #8c183a44;
+button.action:hover {
+  background:#4a1525;
+  border-color:#c17b87;
+  box-shadow:0 0 25px #9b304533;
 }
 
 header {
-  padding: 22px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #28151b;
-  font: 9px 'Montserrat', sans-serif;
-  letter-spacing: 3px;
-  color: #b88b93;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:5;
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  background:#090607dd;
+  border-bottom:1px solid #362027;
+  font:9px 'Montserrat',sans-serif;
+  letter-spacing:3px;
+  color:#c29b9e;
 }
 
-main { display: none; }
-main.visible { display: block; }
-
-.hero {
-  min-height: 85vh;
-  padding: 90px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background:
-    linear-gradient(#09060899, #090608bb),
-    radial-gradient(ellipse at center, #4b101f 0%, #190b11 45%, #080607 80%);
+.page {
+  display:none;
+  min-height:100vh;
+  padding:110px 22px 70px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
 }
 
-.rose {
-  font-size: 35px;
-  color: #a8324d;
-  margin-bottom: 22px;
+.page.active {
+  display:flex;
+  animation:pageIn .85s ease both;
 }
 
-.hero h2 {
-  font-size: clamp(65px, 13vw, 120px);
-  font-weight: 400;
-  line-height: .9;
-  margin: 0;
+@keyframes pageIn {
+  from { opacity:0; transform:translateY(16px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
-.hero h2 span {
-  color: #b43e58;
-  font-style: italic;
+.page::before {
+  content:"";
+  position:absolute;
+  inset:20px;
+  border:1px solid #4a2930;
+  pointer-events:none;
 }
 
-.hero .sub {
-  margin-top: 35px;
-  font: 9px 'Montserrat', sans-serif;
-  letter-spacing: 5px;
-  color: #c39da3;
+.page-content {
+  width:min(100%,700px);
+  position:relative;
+  z-index:1;
+}
+
+.flower {
+  position:absolute;
+  color:#713344;
+  font-size:75px;
+  opacity:.35;
+  pointer-events:none;
+  filter:drop-shadow(0 0 10px #64152b);
+}
+
+.flower.one { top:12%; left:5%; transform:rotate(-25deg); }
+.flower.two { bottom:10%; right:5%; transform:rotate(25deg); }
+.flower.three { top:17%; right:7%; font-size:45px; }
+.flower.four { bottom:14%; left:8%; font-size:45px; }
+
+h1,h2,h3 { font-weight:400; }
+
+h1 {
+  font-size:clamp(55px,12vw,105px);
+  line-height:.9;
+  margin:25px 0;
+}
+
+h1 span,h2 span {
+  color:#b14c63;
+  font-style:italic;
+}
+
+h2 {
+  font-size:clamp(42px,8vw,68px);
+  margin:18px 0;
+}
+
+.description {
+  color:var(--muted);
+  font-size:21px;
+  line-height:1.7;
+  max-width:490px;
+  margin:20px auto;
 }
 
 .divider {
-  width: 75px;
-  height: 1px;
-  background: #934355;
-  margin: 32px auto;
+  width:70px;
+  height:1px;
+  background:var(--gold);
+  margin:28px auto;
 }
 
-section {
-  max-width: 850px;
-  margin: auto;
-  padding: 100px 25px;
-  text-align: center;
+/* INTRO */
+
+#intro {
+  background:radial-gradient(ellipse at center,#38101e,#10090d 55%,#080607);
 }
 
-.section-label {
-  font: 9px 'Montserrat', sans-serif;
-  letter-spacing: 5px;
-  color: #b65a70;
+.invitation {
+  border:1px solid #75404d;
+  padding:55px 25px;
+  box-shadow:0 0 65px #74182a22;
 }
 
-section h3 {
-  font-size: clamp(36px, 7vw, 58px);
-  font-weight: 400;
-  margin: 20px 0;
+.seal {
+  width:78px;
+  height:78px;
+  margin:35px auto;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle,#a33c51,#4b0c1b);
+  border:1px solid #c17b87;
+  font-size:29px;
+  box-shadow:0 0 25px #a02c4144;
 }
 
-.section-text {
-  max-width: 560px;
-  margin: auto;
-  color: #bda9aa;
-  font-size: 21px;
-  line-height: 1.8;
+/* HOME */
+
+#home {
+  background:
+    radial-gradient(ellipse at center,#37101e 0%,#150b10 45%,#090607 80%);
 }
 
-.letter {
-  margin-top: 40px;
-  padding: 40px 30px;
-  border: 1px solid #4a2630;
-  background: linear-gradient(145deg, #170d12, #0c090b);
-  text-align: left;
+/* LETTER AND ENVELOPE */
+
+#letter-page {
+  background:
+    radial-gradient(ellipse at center,#28101a,#090607 70%);
 }
 
-.letter p {
-  color: #cbb9b8;
-  font: 13px/2 'Montserrat', sans-serif;
+.envelope-wrap {
+  width:min(100%,420px);
+  margin:45px auto 20px;
+  perspective:1000px;
 }
 
-.letter .salutation {
-  color: #c66b80;
-  font: italic 29px 'Cormorant Garamond', serif;
+.envelope {
+  position:relative;
+  height:235px;
+  background:#571b2b;
+  border:1px solid #a36b70;
+  box-shadow:0 15px 45px #0009;
+  cursor:pointer;
 }
 
-.signature {
-  text-align: right;
-  color: #c66b80 !important;
-  font: italic 25px 'Cormorant Garamond', serif !important;
+.envelope::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(145deg,#783044,#3a101e);
+  clip-path:polygon(0 0,50% 58%,100% 0);
+  z-index:3;
+  transform-origin:top;
+  transition:transform .9s ease;
 }
+
+.envelope.open::before {
+  transform:rotateX(180deg);
+}
+
+.envelope::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(35deg,#4c1424 49%,transparent 50%),
+             linear-gradient(-35deg,#641e30 49%,transparent 50%);
+  z-index:2;
+}
+
+.wax {
+  position:absolute;
+  z-index:4;
+  left:50%;
+  top:48%;
+  transform:translate(-50%,-50%);
+  width:55px;
+  height:55px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:radial-gradient(circle,#c05466,#781a30);
+  border:1px solid #d28a8c;
+  color:#f0d6cb;
+  font-size:23px;
+  transition:opacity .4s;
+}
+
+.envelope.open .wax { opacity:0; }
+
+.letter-paper {
+  position:absolute;
+  z-index:1;
+  left:7%;
+  width:86%;
+  top:8px;
+  height:210px;
+  padding:18px;
+  background:#e8d7c3;
+  color:#40232a;
+  transition:transform 1s ease;
+}
+
+.envelope.open .letter-paper {
+  transform:translateY(-115px);
+}
+
+.letter-paper p {
+  font-size:19px;
+  font-style:italic;
+}
+
+.open-hint {
+  font:9px 'Montserrat',sans-serif;
+  letter-spacing:3px;
+  color:#c18b93;
+  margin-top:25px;
+}
+
+.full-letter {
+  display:none;
+  background:#e8d7c3;
+  color:#39232a;
+  padding:35px 28px;
+  margin:35px auto;
+  max-width:500px;
+  text-align:left;
+  border:8px double #b89b82;
+  box-shadow:0 10px 45px #0008;
+  animation:pageIn 1s ease;
+}
+
+.full-letter.show { display:block; }
+
+.full-letter .dear {
+  font-size:29px;
+  font-style:italic;
+}
+
+.full-letter p {
+  font:13px/2 'Montserrat',sans-serif;
+}
+
+.full-letter .sign {
+  text-align:right;
+  font:italic 25px 'Cormorant Garamond',serif;
+  color:#782d40;
+}
+
+/* ARCHIVES */
 
 .archive-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-top: 35px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin:35px auto;
 }
 
 .archive {
-  min-height: 155px;
-  padding: 25px 12px;
-  border: 1px solid #45232d;
-  background: #130c10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding:35px 12px;
+  min-height:145px;
+  border:1px solid #68404a;
+  background:linear-gradient(145deg,#211018,#100b0d);
 }
 
 .archive span {
-  font-size: 29px;
-  color: #a8425b;
+  color:#bd6678;
+  font-size:30px;
 }
 
 .archive p {
-  font: 9px 'Montserrat', sans-serif;
-  letter-spacing: 2px;
-  color: #c9aeb2;
+  font:9px 'Montserrat',sans-serif;
+  letter-spacing:2px;
+  color:#d3b6b5;
+}
+
+/* FOOTER NAVIGATION */
+
+.nav {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:35px;
 }
 
 footer {
-  padding: 35px 15px;
-  text-align: center;
-  border-top: 1px solid #28151b;
-  color: #80515d;
-  font: 9px 'Montserrat', sans-serif;
-  letter-spacing: 3px;
+  text-align:center;
+  padding:25px;
+  color:#80515d;
+  font:9px 'Montserrat',sans-serif;
+  letter-spacing:3px;
+  border-top:1px solid #352129;
 }
 
-@media(max-width: 500px) {
-  .archive-grid { grid-template-columns: 1fr; }
-  header { padding: 20px 5%; }
+@media(max-width:500px) {
+  .archive-grid { grid-template-columns:1fr; }
+  header { padding:18px 5%; }
+  .page::before { inset:10px; }
 }
 </style>
 </head>
 
 <body>
 
-<div id="intro">
-  <div class="invitation">
-    <div class="eyebrow">A private invitation</div>
-    <div class="seal">P</div>
-    <div class="eyebrow">Strictly confidential · 12 November</div>
-    <h1>Blood <i>&</i> Roses</h1>
-    <p>A little world made exclusively for Pearl.</p>
-    <button class="action" onclick="enter()">ACCEPT THE INVITATION ♡</button>
-  </div>
-</div>
-
 <header>
-  <span>B & R</span>
+  <span>BLOOD & ROSES</span>
   <span>THE PEARL SHAH EDITION</span>
 </header>
 
-<main id="site">
+<!-- PAGE 1: INVITATION -->
 
-  <div class="hero">
-    <div class="rose">❦</div>
-    <div class="eyebrow">An occasion worth remembering</div>
-    <h2>PEARL<br><span>SHAH.</span></h2>
-    <div class="divider"></div>
-    <div class="sub">A NOVEMBER STORY · EST. 12.11</div>
-    <button class="action" onclick="document.getElementById('letter-section').scrollIntoView()">ENTER HER WORLD ↓</button>
+<div class="page active" id="intro">
+  <span class="flower one">❀</span>
+  <span class="flower two">❦</span>
+
+  <div class="page-content invitation">
+    <div class="eyebrow">A private invitation</div>
+    <div class="seal">P</div>
+    <div class="eyebrow">Strictly confidential · 12 November</div>
+    <h1>Blood <span>& Roses</span></h1>
+    <p class="description">A little world made exclusively for Pearl.</p>
+    <button class="action" onclick="showPage('home')">
+      ACCEPT THE INVITATION ♡
+    </button>
   </div>
+</div>
 
-  <section id="letter-section">
-    <div class="section-label">01 · THE PRIVATE LETTER</div>
-    <h3>For the girl of the hour.</h3>
+<!-- PAGE 2: GRAND ENTRANCE -->
+
+<div class="page" id="home">
+  <span class="flower one">❀</span>
+  <span class="flower two">❦</span>
+  <span class="flower three">✿</span>
+  <span class="flower four">❧</span>
+
+  <div class="page-content">
+    <div class="ornament">❦ ✧ ❦</div>
+    <div class="eyebrow">An occasion worth remembering</div>
+    <h1>PEARL<br><span>SHAH.</span></h1>
     <div class="divider"></div>
+    <p class="description">
+      Some names deserve their own little universe.
+      This one happens to be yours.
+    </p>
+    <div class="eyebrow">A November story · 12.11</div>
 
-    <div class="letter">
-      <p class="salutation">Dear Pearl,</p>
+    <div class="nav">
+      <button class="action" onclick="showPage('letter-page')">THE LETTER ✉</button>
+      <button class="action" onclick="showPage('archives')">SECRET ARCHIVES ❦</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: THE ENVELOPE -->
+
+<div class="page" id="letter-page">
+  <span class="flower one">❀</span>
+  <span class="flower two">❦</span>
+
+  <div class="page-content">
+    <div class="eyebrow">01 · A letter sealed with love</div>
+    <h2>Something <span>for you.</span></h2>
+    <p class="description">A little note, kept safe just for its recipient.</p>
+
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope" onclick="openEnvelope()">
+        <div class="letter-paper">
+          <p>For Pearl,</p>
+          <p style="font-size:13px">With love, Anavia ♡</p>
+        </div>
+        <div class="wax">P</div>
+      </div>
+    </div>
+
+    <div class="open-hint" id="hint">TAP THE ENVELOPE TO UNSEAL IT</div>
+
+    <div class="full-letter" id="full-letter">
+      <div class="dear">My dearest Pearl,</div>
 
       <p>
         Some people deserve more than an ordinary birthday wish.
@@ -321,19 +469,24 @@ footer {
         that deserve to be remembered.
       </p>
 
-      <p class="signature">
-        With love,<br>
-        Anavia ♡
-      </p>
+      <div class="sign">With love,<br>Anavia ♡</div>
     </div>
-  </section>
 
-  <section>
-    <div class="section-label">02 · THE SECRET ARCHIVES</div>
-    <h3>Some things are worth keeping.</h3>
-    <p class="section-text">
-      Every good story has its own collection of memories.
-      This little corner is reserved for yours.
+    <button class="action" onclick="showPage('home')">← BACK</button>
+  </div>
+</div>
+
+<!-- PAGE 4: ARCHIVES -->
+
+<div class="page" id="archives">
+  <span class="flower one">❀</span>
+  <span class="flower two">❦</span>
+
+  <div class="page-content">
+    <div class="eyebrow">02 · The secret archives</div>
+    <h2>Little things <span>worth keeping.</span></h2>
+    <p class="description">
+      Every beautiful story has memories tucked between its pages.
     </p>
 
     <div class="archive-grid">
@@ -354,28 +507,48 @@ footer {
         <p>THE LITTLE NOTES</p>
       </div>
     </div>
-  </section>
 
-  <section>
-    <div class="section-label">03 · THE FINAL WORD</div>
-    <h3>Another year. Another story.</h3>
-    <p class="section-text">
-      May your next chapter be as extraordinary as the person
-      writing it. Happy birthday, Pearl.
+    <p class="description" style="font-size:17px">
+      More secrets are waiting to be added...
     </p>
-    <div class="rose" style="margin-top:35px">🥀</div>
-  </section>
 
-</main>
+    <button class="action" onclick="showPage('home')">← BACK TO THE BEGINNING</button>
+  </div>
+</div>
 
 <footer>
   BLOOD & ROSES · MADE WITH LOVE BY ANAVIA
 </footer>
 
 <script>
-function enter() {
-  document.getElementById('intro').classList.add('hidden');
-  document.getElementById('site').classList.add('visible');
+function showPage(id) {
+  const current = document.querySelector('.page.active');
+  if (current) current.classList.remove('active');
+
+  setTimeout(() => {
+    document.querySelectorAll('.page').forEach(page => {
+      page.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }, 180);
+}
+
+let opened = false;
+
+function openEnvelope() {
+  if (opened) return;
+
+  opened = true;
+
+  document.getElementById('envelope').classList.add('open');
+  document.getElementById('hint').textContent = 'A LETTER, JUST FOR YOU...';
+
+  setTimeout(() => {
+    document.getElementById('full-letter').classList.add('show');
+    document.getElementById('hint').textContent = 'SEALED WITH LOVE ♡';
+  }, 950);
 }
 </script>
 
