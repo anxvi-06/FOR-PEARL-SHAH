@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090507">
   <meta name="description" content="A little birthday archive made for Pearl Shah.">
-  <title>For Pearl Shah — A Birthday Archive</title>
+  <title>Home — For Pearl Shah</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -13,24 +13,20 @@
 </head>
 <body>
   <div class="wallpaper" aria-hidden="true"></div>
-  <div class="lace lace-left" aria-hidden="true"></div>
-  <div class="lace lace-right" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="petal-field" aria-hidden="true"></div>
+  <div class="lace lace-left" aria-hidden="true"></div><div class="lace lace-right" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div><div class="petal-field" aria-hidden="true"></div>
   <div class="smoke-screen" aria-hidden="true"><span></span><span></span><span></span></div>
 
   <header class="topbar">
-    <a class="monogram" href="#home" aria-label="Back to top">P<span>✦</span>S</a>
+    <a class="monogram" href="index.html" data-page-link aria-label="Home">P<span>✦</span>S</a>
     <nav aria-label="Main navigation">
-      <a href="#invitation">THE INVITATION</a>
-      <a href="#letter">A LETTER</a>
-      <a href="#archive">THE ARCHIVE</a>
+      <a href="invitation.html" data-page-link>THE INVITATION</a>
+      <a href="letter.html" data-page-link>A LETTER</a>
+      <a href="archive.html" data-page-link>THE ARCHIVE</a>
     </nav>
-    <button class="sound-toggle" type="button" aria-label="Toggle ambient sound" title="Sound is off by default">♬ <span>SOUND OFF</span></button>
+    <span class="sound-toggle">♬ <span>SOUND OFF</span></span>
   </header>
-
-  <main>
-    <section class="hero section" id="home">
+<main><section class="hero section" id="home">
       <div class="hero-rose hero-rose-one" aria-hidden="true"><img src="assets/rose.svg" alt=""></div>
       <div class="hero-rose hero-rose-two" aria-hidden="true"><img src="assets/rose.svg" alt=""></div>
       <div class="hero-content">
@@ -40,102 +36,12 @@
         <p class="hero-script">Shah</p>
         <div class="gold-rule"><i>✦</i></div>
         <p class="hero-subtitle">A birthday archive of little things, lovely memories<br>and all the words that deserve to be kept.</p>
-        <a class="wax-button" href="#invitation"><span>ENTER THE ARCHIVE</span><b>↗</b></a>
+        <a class="wax-button" href="invitation.html" data-page-link><span>ENTER THE ARCHIVE</span><b>↗</b></a>
         <p class="hero-date">A DAY MADE A LITTLE MORE SPECIAL</p>
       </div>
-      <div class="scroll-cue"><span></span> SCROLL TO UNFOLD</div>
-    </section>
-
-    <section class="invitation section" id="invitation">
-      <div class="section-heading">
-        <span class="section-number">I — THE INVITATION</span>
-        <h2>An evening <em>in your honour.</em></h2>
-        <p>Some people deserve more than a message on a screen.</p>
-      </div>
-      <article class="invite-card">
-        <div class="invite-inner">
-          <div class="invite-flourish top">❧ ❦ ❧</div>
-          <p class="invite-small">YOU ARE CORDIALLY INVITED TO CELEBRATE</p>
-          <h3>Another chapter<br><i>of Pearl.</i></h3>
-          <div class="invite-divider"><span>✦</span></div>
-          <p class="invite-copy">For the laughs that arrive unexpectedly, the memories that stay long after the moment has passed, and the kind of friendship that makes ordinary days feel special.</p>
-          <p class="invite-name">Pearl Shah</p>
-          <p class="invite-bottom">WITH LOVE, AND A LITTLE DRAMA</p>
-          <div class="invite-flourish bottom">❧ ❦ ❧</div>
-        </div>
-        <img class="invite-rose" src="assets/rose.svg" alt="" aria-hidden="true">
-      </article>
-      <div class="section-footnote">PLEASE, MAKE YOURSELF AT HOME <span>✦</span></div>
-    </section>
-
-    <section class="letter-section section" id="letter">
-      <div class="section-heading">
-        <span class="section-number">II — THE LETTER</span>
-        <h2>Words, <em>kept close.</em></h2>
-        <p>A note for the birthday girl. Open it when you're ready.</p>
-      </div>
-      <div class="letter-stage">
-        <button class="envelope" type="button" aria-label="Open the birthday letter" aria-expanded="false">
-          <span class="envelope-back"></span>
-          <span class="envelope-paper"><span>For Pearl,<br>with love.</span></span>
-          <span class="envelope-front"></span>
-          <span class="envelope-flap"></span>
-          <span class="wax-seal">P</span>
-          <span class="envelope-label">OPEN YOUR LETTER</span>
-        </button>
-        <article class="letter-paper" aria-hidden="true">
-          <div class="paper-corner corner-one">❦</div><div class="paper-corner corner-two">❦</div>
-          <p class="letter-date">A NOTE FOR YOU</p>
-          <h3>Dear Pearl,</h3>
-          <p>Happy birthday, Pearl! I hope this new chapter brings you the kind of happiness that sneaks up on you in the middle of an ordinary day, the kind of laughter that makes your stomach hurt, and memories you'll keep coming back to.</p>
-          <p>May life be gentle with you when it can, exciting when you need it, and full of people who remind you how loved and appreciated you are. Keep being wonderfully, unmistakably you.</p>
-          <p>Here's to more stories, more ridiculous moments, more photos we will probably judge later, and a hundred little reasons to smile.</p>
-          <p class="letter-sign">With lots of love, <span>♡</span></p>
-          <div class="letter-seal">P</div>
-        </article>
-      </div>
-      <p class="letter-hint">TAP THE ENVELOPE TO OPEN YOUR LETTER</p>
-    </section>
-
-    <section class="archive-section section" id="archive">
-      <div class="section-heading">
-        <span class="section-number">III — THE ARCHIVE</span>
-        <h2>Little things, <em>forever.</em></h2>
-        <p>A few drawers from the very important department of us.</p>
-      </div>
-      <div class="archive-grid">
-        <button class="archive-card memory-card" data-title="The memories" data-copy="The random conversations, the unexpected laughs, the days that became stories. Add your favourite shared memory here when you want to make this page even more personal.">
-          <span class="card-index">01 / KEEPSAKES</span><span class="card-icon">✧</span>
-          <span class="card-title">The memories</span><span class="card-caption">A collection of moments worth keeping</span><span class="card-open">OPEN DRAWER ↗</span>
-        </button>
-        <button class="archive-card photo-card" data-title="The photographs" data-copy="A place for the pictures that deserve their own little frame. Replace this note with a favourite photo or a tiny story behind it.">
-          <span class="card-index">02 / PORTRAITS</span><span class="card-icon">❀</span>
-          <span class="card-title">The photographs</span><span class="card-caption">Proof that the good days happened</span><span class="card-open">OPEN DRAWER ↗</span>
-        </button>
-        <button class="archive-card joke-card" data-title="The inside jokes" data-copy="The jokes that make absolutely no sense to anyone else. Add your favourite inside joke here — the more specific and ridiculous, the better.">
-          <span class="card-index">03 / CLASSIFIED</span><span class="card-icon">☾</span>
-          <span class="card-title">The inside jokes</span><span class="card-caption">Highly confidential. Obviously.</span><span class="card-open">OPEN DRAWER ↗</span>
-        </button>
-      </div>
-      <div class="closing-note">
-        <span class="closing-ornament">✦</span>
-        <p>May this year be a beautiful one.</p>
-        <h2>Happy Birthday, <em>Pearl.</em></h2>
-        <span class="closing-small">END OF THIS LITTLE ARCHIVE · BEGINNING OF A NEW CHAPTER</span>
-      </div>
-    </section>
-  </main>
-
+      <div class="scroll-cue"><span></span> A LITTLE WORLD, JUST FOR YOU</div>
+    </section></main>
   <footer><span>MADE WITH LOVE</span><span class="footer-star">✦</span><span>FOR PEARL SHAH</span></footer>
-
-  <div class="memory-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-    <button class="modal-close" type="button" aria-label="Close">×</button>
-    <span class="modal-kicker">FROM THE ARCHIVE</span>
-    <h2 id="modal-title"></h2>
-    <p class="modal-copy"></p>
-    <span class="modal-ornament">❦</span>
-  </div>
-
   <script src="script.js"></script>
 </body>
 </html>
