@@ -4,448 +4,644 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blood & Roses | Pearl Shah</title>
+<meta name="theme-color" content="#090507">
+<title>Blood & Roses — Pearl Shah</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --black:#090607;
-  --wine:#42101f;
-  --red:#a13d51;
-  --gold:#b99a70;
-  --cream:#eadbd0;
-  --muted:#b69da0;
+  --black: #090507;
+  --wine: #260812;
+  --burgundy: #430f20;
+  --red: #922b43;
+  --gold: #b89a70;
+  --cream: #d9c4a9;
+  --muted: #b69ca0;
 }
 
-* { box-sizing:border-box; }
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  margin:0;
-  background:var(--black);
-  color:var(--cream);
-  font-family:'Cormorant Garamond',serif;
-  overflow-x:hidden;
+  margin: 0;
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
 }
 
-button {
-  cursor:pointer;
-  font-family:'Montserrat',sans-serif;
+button { font: inherit; cursor: pointer; }
+
+/* VINTAGE LACE BORDER */
+
+.site-frame {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
 }
 
-.ornament {
-  color:#a94d60;
-  font-size:25px;
-  letter-spacing:9px;
+.site-frame::before,
+.site-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(17px, 4vw, 48px);
+  background:
+    radial-gradient(circle, #b99a8066 2px, transparent 3px)
+      50% 0 / 10px 12px,
+    repeating-linear-gradient(
+      0deg,
+      #c5a58a22 0px,
+      #c5a58a22 2px,
+      transparent 3px,
+      transparent 8px
+    ),
+    linear-gradient(90deg, #160a10, #6e414a55, #160a10);
+  border-left: 1px solid #a17b6255;
+  border-right: 1px solid #a17b6255;
 }
 
-.eyebrow {
-  font:9px 'Montserrat',sans-serif;
-  letter-spacing:4px;
-  color:var(--gold);
-  text-transform:uppercase;
+.site-frame::before { left: 0; }
+.site-frame::after { right: 0; }
+
+/* HEADER */
+
+.topbar {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(#080406ed, #080406a8, transparent);
+  font: 9px 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  color: #c1a17d;
 }
 
-button.action {
-  background:transparent;
-  color:var(--cream);
-  border:1px solid #87505b;
-  padding:14px 24px;
-  letter-spacing:2px;
-  font-size:9px;
-  transition:.4s;
-}
-
-button.action:hover {
-  background:#4a1525;
-  border-color:#c17b87;
-  box-shadow:0 0 25px #9b304533;
-}
-
-header {
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:5;
-  padding:20px 7%;
-  display:flex;
-  justify-content:space-between;
-  background:#090607dd;
-  border-bottom:1px solid #362027;
-  font:9px 'Montserrat',sans-serif;
-  letter-spacing:3px;
-  color:#c29b9e;
-}
+/* PAGE TRANSITIONS */
 
 .page {
-  display:none;
-  min-height:100vh;
-  padding:110px 22px 70px;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-
-.page.active {
-  display:flex;
-  animation:pageIn .85s ease both;
-}
-
-@keyframes pageIn {
-  from { opacity:0; transform:translateY(16px); }
-  to { opacity:1; transform:translateY(0); }
+  display: none;
+  min-height: 100vh;
+  position: relative;
+  padding: 110px 35px 75px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, #35101d77, transparent 55%),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 23px,
+      #7d3b4b08 24px 25px
+    ),
+    #0b0609;
 }
 
 .page::before {
-  content:"";
-  position:absolute;
-  inset:20px;
-  border:1px solid #4a2930;
-  pointer-events:none;
+  content: "";
+  position: absolute;
+  inset: 22px 5%;
+  border: 1px solid #9a76513b;
+  pointer-events: none;
 }
 
-.page-content {
-  width:min(100%,700px);
-  position:relative;
-  z-index:1;
+.page.active {
+  display: flex;
+  animation: reveal .75s ease both;
 }
 
-.flower {
-  position:absolute;
-  color:#713344;
-  font-size:75px;
-  opacity:.35;
-  pointer-events:none;
-  filter:drop-shadow(0 0 10px #64152b);
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.flower.one { top:12%; left:5%; transform:rotate(-25deg); }
-.flower.two { bottom:10%; right:5%; transform:rotate(25deg); }
-.flower.three { top:17%; right:7%; font-size:45px; }
-.flower.four { bottom:14%; left:8%; font-size:45px; }
+.content {
+  width: min(100%, 850px);
+  position: relative;
+  z-index: 2;
+}
 
-h1,h2,h3 { font-weight:400; }
+.corner {
+  position: absolute;
+  color: #8b4855;
+  opacity: .55;
+  font-size: clamp(30px, 5vw, 62px);
+  pointer-events: none;
+}
+
+.c1 { top: 8%; left: 7%; }
+.c2 { top: 8%; right: 7%; transform: scaleX(-1); }
+.c3 { bottom: 9%; left: 7%; transform: scaleY(-1); }
+.c4 { bottom: 9%; right: 7%; transform: scale(-1); }
+
+.eyebrow {
+  font: 9px 'Montserrat', sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h1, h2, h3 { font-weight: 400; margin: 0; }
 
 h1 {
-  font-size:clamp(55px,12vw,105px);
-  line-height:.9;
-  margin:25px 0;
+  font-size: clamp(58px, 11vw, 112px);
+  line-height: .88;
+  margin: 25px 0;
 }
 
-h1 span,h2 span {
-  color:#b14c63;
-  font-style:italic;
+h1 em, h2 em {
+  color: #a63e56;
+  font-weight: 400;
 }
 
 h2 {
-  font-size:clamp(42px,8vw,68px);
-  margin:18px 0;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.02;
+  margin: 17px 0;
 }
 
-.description {
-  color:var(--muted);
-  font-size:21px;
-  line-height:1.7;
-  max-width:490px;
-  margin:20px auto;
+.rule {
+  width: 95px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 27px auto;
 }
 
-.divider {
-  width:70px;
-  height:1px;
-  background:var(--gold);
-  margin:28px auto;
+.copy {
+  max-width: 560px;
+  margin: 18px auto;
+  color: #c1aeb0;
+  font-size: clamp(18px, 2.5vw, 23px);
+  line-height: 1.55;
 }
 
-/* INTRO */
-
-#intro {
-  background:radial-gradient(ellipse at center,#38101e,#10090d 55%,#080607);
+.ornament {
+  font-size: 25px;
+  color: #a35b66;
+  letter-spacing: 8px;
+  margin: 18px 0;
 }
 
-.invitation {
-  border:1px solid #75404d;
-  padding:55px 25px;
-  box-shadow:0 0 65px #74182a22;
+/* BUTTONS */
+
+.button {
+  display: inline-block;
+  margin: 12px 6px 0;
+  padding: 14px 23px;
+  border: 1px solid #92705d;
+  background: #10080c;
+  color: #e0c9ad;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font: 9px 'Montserrat', sans-serif;
+  transition: .3s;
+}
+
+.button:hover {
+  background: #4a1225;
+  border-color: #c58d82;
+  box-shadow: 0 0 24px #8c263d44;
+  transform: translateY(-2px);
+}
+
+/* INVITATION */
+
+.intro-card {
+  max-width: 650px;
+  margin: auto;
+  padding: clamp(32px, 6vw, 65px) 24px;
+  border: 1px solid #88664f66;
+  background: linear-gradient(145deg, #1a0b11dd, #090507ef);
+  box-shadow: 0 25px 90px #0009, inset 0 0 50px #5d1b2a18;
 }
 
 .seal {
-  width:78px;
-  height:78px;
-  margin:35px auto;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:radial-gradient(circle,#a33c51,#4b0c1b);
-  border:1px solid #c17b87;
-  font-size:29px;
-  box-shadow:0 0 25px #a02c4144;
+  height: 76px;
+  width: 76px;
+  margin: 30px auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #e1c9ad;
+  font-size: 30px;
+  background: radial-gradient(circle at 35% 30%, #a74458, #5b1428 60%, #260812);
+  border: 1px solid #c08b79;
+  box-shadow: 0 0 0 5px #4b1825, 0 0 0 6px #a47d5a66, 0 10px 35px #000;
 }
 
-/* HOME */
-
-#home {
-  background:
-    radial-gradient(ellipse at center,#37101e 0%,#150b10 45%,#090607 80%);
+.hero-flowers {
+  font-size: clamp(34px, 6vw, 65px);
+  color: #742438;
+  letter-spacing: 15px;
+  text-shadow: 0 0 24px #7f1e36;
 }
 
-/* LETTER AND ENVELOPE */
-
-#letter-page {
-  background:
-    radial-gradient(ellipse at center,#28101a,#090607 70%);
+.hero-title span {
+  display: block;
+  font-style: italic;
+  color: #a83c55;
 }
 
-.envelope-wrap {
-  width:min(100%,420px);
-  margin:45px auto 20px;
-  perspective:1000px;
+.smallcaps {
+  font: 9px 'Montserrat', sans-serif;
+  letter-spacing: 4px;
+  color: #c2a17b;
+}
+
+/* ENVELOPE */
+
+.envelope-area {
+  width: min(100%, 480px);
+  margin: 38px auto 20px;
+  perspective: 1000px;
 }
 
 .envelope {
-  position:relative;
-  height:235px;
-  background:#571b2b;
-  border:1px solid #a36b70;
-  box-shadow:0 15px 45px #0009;
-  cursor:pointer;
+  position: relative;
+  height: 270px;
+  cursor: pointer;
+  background: linear-gradient(145deg, #541426, #210811);
+  border: 1px solid #a27662;
+  box-shadow: 0 20px 55px #000b;
+  isolation: isolate;
 }
 
 .envelope::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(145deg,#783044,#3a101e);
-  clip-path:polygon(0 0,50% 58%,100% 0);
-  z-index:3;
-  transform-origin:top;
-  transition:transform .9s ease;
-}
-
-.envelope.open::before {
-  transform:rotateX(180deg);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #6b1d32, #350d1b);
+  clip-path: polygon(0 0, 50% 57%, 100% 0);
+  transform-origin: top;
+  transition: transform .85s;
+  z-index: 4;
+  border-bottom: 1px solid #b88b6a;
 }
 
 .envelope::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(35deg,#4c1424 49%,transparent 50%),
-             linear-gradient(-35deg,#641e30 49%,transparent 50%);
-  z-index:2;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(35deg, #3a0d1b 49.7%, transparent 50%),
+    linear-gradient(-35deg, #59172a 49.7%, transparent 50%);
+  z-index: 3;
+}
+
+.paper-peek {
+  position: absolute;
+  z-index: 2;
+  left: 7%;
+  width: 86%;
+  top: 9px;
+  height: 220px;
+  background: repeating-linear-gradient(
+    0deg,
+    #bba48b,
+    #bba48b 1px,
+    #cbb79e 2px,
+    #cbb79e 4px
+  );
+  color: #3b1d23;
+  padding: 18px;
+  font-style: italic;
+  font-size: 24px;
+  transition: transform 1s;
 }
 
 .wax {
-  position:absolute;
-  z-index:4;
-  left:50%;
-  top:48%;
-  transform:translate(-50%,-50%);
-  width:55px;
-  height:55px;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  background:radial-gradient(circle,#c05466,#781a30);
-  border:1px solid #d28a8c;
-  color:#f0d6cb;
-  font-size:23px;
-  transition:opacity .4s;
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, #b74d60, #651326 70%);
+  border: 1px solid #d4a18a;
+  color: #f0d7bd;
+  font-size: 24px;
+  box-shadow: 0 4px 12px #0009;
+  transition: opacity .4s;
 }
 
-.envelope.open .wax { opacity:0; }
+.envelope.open::before { transform: rotateX(180deg); }
+.envelope.open .paper-peek { transform: translateY(-120px); }
+.envelope.open .wax { opacity: 0; }
+
+.hint {
+  font: 9px 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  color: #bd8d86;
+  margin: 20px;
+}
+
+/* LETTER */
 
 .letter-paper {
-  position:absolute;
-  z-index:1;
-  left:7%;
-  width:86%;
-  top:8px;
-  height:210px;
-  padding:18px;
-  background:#e8d7c3;
-  color:#40232a;
-  transition:transform 1s ease;
+  display: none;
+  max-width: 600px;
+  margin: 35px auto 0;
+  padding: clamp(25px, 5vw, 48px);
+  text-align: left;
+  color: #321c20;
+  background: linear-gradient(135deg, #c8b293, #ddc9aa);
+  border: 8px double #92745d;
+  box-shadow: 0 15px 50px #000b;
+  animation: reveal .8s ease;
 }
 
-.envelope.open .letter-paper {
-  transform:translateY(-115px);
+.letter-paper.show { display: block; }
+
+.letter-paper::before {
+  content: "❦";
+  display: block;
+  text-align: center;
+  font-size: 26px;
+  color: #743043;
+}
+
+.letter-paper .salutation {
+  font-size: 29px;
+  font-style: italic;
+  color: #65283a;
 }
 
 .letter-paper p {
-  font-size:19px;
-  font-style:italic;
+  font: 13px/2 'Montserrat', sans-serif;
 }
 
-.open-hint {
-  font:9px 'Montserrat',sans-serif;
-  letter-spacing:3px;
-  color:#c18b93;
-  margin-top:25px;
-}
-
-.full-letter {
-  display:none;
-  background:#e8d7c3;
-  color:#39232a;
-  padding:35px 28px;
-  margin:35px auto;
-  max-width:500px;
-  text-align:left;
-  border:8px double #b89b82;
-  box-shadow:0 10px 45px #0008;
-  animation:pageIn 1s ease;
-}
-
-.full-letter.show { display:block; }
-
-.full-letter .dear {
-  font-size:29px;
-  font-style:italic;
-}
-
-.full-letter p {
-  font:13px/2 'Montserrat',sans-serif;
-}
-
-.full-letter .sign {
-  text-align:right;
-  font:italic 25px 'Cormorant Garamond',serif;
-  color:#782d40;
+.letter-paper .signature {
+  text-align: right;
+  font: italic 26px 'Cormorant Garamond', serif;
+  color: #762b40;
 }
 
 /* ARCHIVES */
 
 .archive-grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin:35px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 35px auto;
+  max-width: 800px;
 }
 
-.archive {
-  padding:35px 12px;
-  min-height:145px;
-  border:1px solid #68404a;
-  background:linear-gradient(145deg,#211018,#100b0d);
+.archive-card {
+  min-height: 170px;
+  padding: 20px 10px;
+  border: 1px solid #80604e;
+  background: linear-gradient(145deg, #211017, #0e080c);
+  color: #d6b994;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
 }
 
-.archive span {
-  color:#bd6678;
-  font-size:30px;
+.archive-card:hover {
+  transform: translateY(-5px);
+  background: #35101e;
+  border-color: #bd8a6a;
 }
 
-.archive p {
-  font:9px 'Montserrat',sans-serif;
-  letter-spacing:2px;
-  color:#d3b6b5;
+.archive-card .symbol {
+  font-size: 35px;
+  color: #9d4054;
 }
 
-/* FOOTER NAVIGATION */
+.archive-card strong {
+  font: 9px 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  margin-top: 15px;
+  font-weight: 400;
+}
 
-.nav {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:35px;
+.archive-card small {
+  font: italic 15px 'Cormorant Garamond', serif;
+  color: #a98e88;
+  margin-top: 6px;
+}
+
+/* POP-UP */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: #050305ed;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.modal.show {
+  display: flex;
+  animation: reveal .3s ease;
+}
+
+.modal-box {
+  max-width: 480px;
+  width: 100%;
+  padding: 40px 25px;
+  border: 1px solid #98735b;
+  background: linear-gradient(145deg, #211018, #0c070a);
+  text-align: center;
+}
+
+.modal-box p {
+  color: #c3abad;
+  font-size: 20px;
+  line-height: 1.5;
 }
 
 footer {
-  text-align:center;
-  padding:25px;
-  color:#80515d;
-  font:9px 'Montserrat',sans-serif;
-  letter-spacing:3px;
-  border-top:1px solid #352129;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 24px 12px;
+  color: #9a7567;
+  background: #090507;
+  border-top: 1px solid #62404a;
+  font: 8px 'Montserrat', sans-serif;
+  letter-spacing: 3px;
 }
 
-@media(max-width:500px) {
-  .archive-grid { grid-template-columns:1fr; }
-  header { padding:18px 5%; }
-  .page::before { inset:10px; }
+@media(max-width: 650px) {
+  .archive-grid { grid-template-columns: repeat(2, 1fr); }
+  .envelope { height: 230px; }
+  .paper-peek { height: 190px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<div class="site-frame"></div>
+
+<header class="topbar">
   <span>BLOOD & ROSES</span>
   <span>THE PEARL SHAH EDITION</span>
 </header>
 
 <!-- PAGE 1: INVITATION -->
 
-<div class="page active" id="intro">
-  <span class="flower one">❀</span>
-  <span class="flower two">❦</span>
+<section class="page active" id="invitation">
 
-  <div class="page-content invitation">
-    <div class="eyebrow">A private invitation</div>
+  <span class="corner c1">❦</span>
+  <span class="corner c2">❦</span>
+  <span class="corner c3">❧</span>
+  <span class="corner c4">❧</span>
+
+  <div class="content intro-card">
+
+    <div class="eyebrow">
+      A private invitation · strictly confidential
+    </div>
+
     <div class="seal">P</div>
-    <div class="eyebrow">Strictly confidential · 12 November</div>
-    <h1>Blood <span>& Roses</span></h1>
-    <p class="description">A little world made exclusively for Pearl.</p>
-    <button class="action" onclick="showPage('home')">
-      ACCEPT THE INVITATION ♡
+
+    <div class="hero-flowers">✿ ❧ ✿</div>
+
+    <h1>Blood <em>& Roses</em></h1>
+
+    <p class="copy">
+      A little world made exclusively for Pearl.
+    </p>
+
+    <div class="rule"></div>
+
+    <button class="button" onclick="go('home')">
+      Accept the invitation ♡
     </button>
+
   </div>
-</div>
+</section>
 
-<!-- PAGE 2: GRAND ENTRANCE -->
+<!-- PAGE 2: PEARL -->
 
-<div class="page" id="home">
-  <span class="flower one">❀</span>
-  <span class="flower two">❦</span>
-  <span class="flower three">✿</span>
-  <span class="flower four">❧</span>
+<section class="page" id="home">
 
-  <div class="page-content">
-    <div class="ornament">❦ ✧ ❦</div>
-    <div class="eyebrow">An occasion worth remembering</div>
-    <h1>PEARL<br><span>SHAH.</span></h1>
-    <div class="divider"></div>
-    <p class="description">
+  <span class="corner c1">❦</span>
+  <span class="corner c2">❦</span>
+  <span class="corner c3">❧</span>
+  <span class="corner c4">❧</span>
+
+  <div class="content">
+
+    <div class="smallcaps">
+      An occasion worth remembering
+    </div>
+
+    <div class="hero-flowers">❧ ❀ ❧</div>
+
+    <h1 class="hero-title">
+      PEARL
+      <span>Shah.</span>
+    </h1>
+
+    <div class="rule"></div>
+
+    <p class="copy">
       Some names deserve their own little universe.
       This one happens to be yours.
     </p>
-    <div class="eyebrow">A November story · 12.11</div>
 
-    <div class="nav">
-      <button class="action" onclick="showPage('letter-page')">THE LETTER ✉</button>
-      <button class="action" onclick="showPage('archives')">SECRET ARCHIVES ❦</button>
+    <div class="smallcaps">
+      A November story · 12 November
+    </div>
+
+    <div style="margin-top:36px">
+
+      <button class="button" onclick="go('letter')">
+        The letter ✉
+      </button>
+
+      <button class="button" onclick="go('archives')">
+        Secret archives ❦
+      </button>
+
     </div>
   </div>
-</div>
+</section>
 
-<!-- PAGE 3: THE ENVELOPE -->
+<!-- PAGE 3: LETTER -->
 
-<div class="page" id="letter-page">
-  <span class="flower one">❀</span>
-  <span class="flower two">❦</span>
+<section class="page" id="letter">
 
-  <div class="page-content">
-    <div class="eyebrow">01 · A letter sealed with love</div>
-    <h2>Something <span>for you.</span></h2>
-    <p class="description">A little note, kept safe just for its recipient.</p>
+  <span class="corner c1">❦</span>
+  <span class="corner c2">❦</span>
+  <span class="corner c3">❧</span>
+  <span class="corner c4">❧</span>
 
-    <div class="envelope-wrap">
-      <div class="envelope" id="envelope" onclick="openEnvelope()">
-        <div class="letter-paper">
-          <p>For Pearl,</p>
-          <p style="font-size:13px">With love, Anavia ♡</p>
-        </div>
-        <div class="wax">P</div>
-      </div>
+  <div class="content">
+
+    <div class="eyebrow">
+      01 · A letter sealed with love
     </div>
 
-    <div class="open-hint" id="hint">TAP THE ENVELOPE TO UNSEAL IT</div>
+    <h2>Something <em>for you.</em></h2>
 
-    <div class="full-letter" id="full-letter">
-      <div class="dear">My dearest Pearl,</div>
+    <p class="copy">
+      A little note, kept safe just for its recipient.
+    </p>
+
+    <div class="envelope-area">
+
+      <div
+        class="envelope"
+        id="envelope"
+        role="button"
+        tabindex="0"
+        aria-label="Open the sealed letter"
+        onclick="openLetter()"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLetter()}"
+      >
+
+        <div class="paper-peek">
+          For Pearl,
+          <br>
+          <small style="font-size:15px">
+            with love, Anavia ♡
+          </small>
+        </div>
+
+        <div class="wax">P</div>
+
+      </div>
+
+    </div>
+
+    <div class="hint" id="hint">
+      TAP THE ENVELOPE TO UNSEAL IT
+    </div>
+
+    <article class="letter-paper" id="letterPaper">
+
+      <div class="salutation">
+        My dearest Pearl,
+      </div>
 
       <p>
         Some people deserve more than an ordinary birthday wish.
@@ -469,50 +665,104 @@ footer {
         that deserve to be remembered.
       </p>
 
-      <div class="sign">With love,<br>Anavia ♡</div>
-    </div>
+      <div class="signature">
+        With love,
+        <br>
+        Anavia ♡
+      </div>
 
-    <button class="action" onclick="showPage('home')">← BACK</button>
+    </article>
+
+    <button class="button" onclick="go('home')">
+      ← Back
+    </button>
+
   </div>
-</div>
+</section>
 
 <!-- PAGE 4: ARCHIVES -->
 
-<div class="page" id="archives">
-  <span class="flower one">❀</span>
-  <span class="flower two">❦</span>
+<section class="page" id="archives">
 
-  <div class="page-content">
-    <div class="eyebrow">02 · The secret archives</div>
-    <h2>Little things <span>worth keeping.</span></h2>
-    <p class="description">
+  <span class="corner c1">❦</span>
+  <span class="corner c2">❦</span>
+  <span class="corner c3">❧</span>
+  <span class="corner c4">❧</span>
+
+  <div class="content">
+
+    <div class="eyebrow">
+      02 · The secret archives
+    </div>
+
+    <h2>
+      Little things <em>worth keeping.</em>
+    </h2>
+
+    <p class="copy">
       Every beautiful story has memories tucked between its pages.
     </p>
 
     <div class="archive-grid">
-      <div class="archive">
-        <span>✧</span>
-        <p>THE MEMORIES</p>
-      </div>
-      <div class="archive">
-        <span>❦</span>
-        <p>THE PHOTOGRAPHS</p>
-      </div>
-      <div class="archive">
-        <span>♡</span>
-        <p>THE INSIDE JOKES</p>
-      </div>
-      <div class="archive">
-        <span>✉</span>
-        <p>THE LITTLE NOTES</p>
-      </div>
+
+      <button class="archive-card"
+        onclick="showModal('The memories','A place for your favourite moments together. We can add photographs and little captions here.')">
+        <span class="symbol">❀</span>
+        <strong>THE MEMORIES</strong>
+        <small>kept close</small>
+      </button>
+
+      <button class="archive-card"
+        onclick="showModal('The photographs','This section is ready for Pearl’s favourite photographs.')">
+        <span class="symbol">♧</span>
+        <strong>THE PHOTOGRAPHS</strong>
+        <small>frozen moments</small>
+      </button>
+
+      <button class="archive-card"
+        onclick="showModal('The inside jokes','The jokes that need absolutely no explanation. We can add your personal ones here.')">
+        <span class="symbol">♛</span>
+        <strong>THE INSIDE JOKES</strong>
+        <small>classified, obviously</small>
+      </button>
+
+      <button class="archive-card"
+        onclick="showModal('The little notes','A few tiny reminders for Pearl, whenever she needs them.')">
+        <span class="symbol">✉</span>
+        <strong>THE LITTLE NOTES</strong>
+        <small>sealed with love</small>
+      </button>
+
     </div>
 
-    <p class="description" style="font-size:17px">
-      More secrets are waiting to be added...
-    </p>
+    <div class="smallcaps">
+      More secrets are waiting to be added…
+    </div>
 
-    <button class="action" onclick="showPage('home')">← BACK TO THE BEGINNING</button>
+    <button class="button" onclick="go('home')">
+      ← Back to the beginning
+    </button>
+
+  </div>
+</section>
+
+<!-- POP-UP -->
+
+<div class="modal" id="modal"
+  onclick="if(event.target===this)closeModal()">
+
+  <div class="modal-box">
+
+    <div class="ornament">❦ ✧ ❦</div>
+
+    <h2 id="modalTitle"></h2>
+
+    <p id="modalText"></p>
+
+    <button class="button" onclick="closeModal()">
+      Close
+    </button>
+
   </div>
 </div>
 
@@ -521,35 +771,80 @@ footer {
 </footer>
 
 <script>
-function showPage(id) {
+
+function go(id) {
+
   const current = document.querySelector('.page.active');
-  if (current) current.classList.remove('active');
 
-  setTimeout(() => {
-    document.querySelectorAll('.page').forEach(page => {
-      page.classList.remove('active');
-    });
+  if (current) {
+    current.classList.remove('active');
+  }
 
-    document.getElementById(id).classList.add('active');
-    window.scrollTo({top:0, behavior:'smooth'});
-  }, 180);
+  const next = document.getElementById(id);
+
+  next.classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
 }
 
-let opened = false;
+let letterOpened = false;
 
-function openEnvelope() {
-  if (opened) return;
+function openLetter() {
 
-  opened = true;
+  if (letterOpened) return;
 
-  document.getElementById('envelope').classList.add('open');
-  document.getElementById('hint').textContent = 'A LETTER, JUST FOR YOU...';
+  letterOpened = true;
+
+  document.getElementById('envelope')
+    .classList.add('open');
+
+  document.getElementById('hint').textContent =
+    'THE SEAL HAS BEEN BROKEN…';
 
   setTimeout(() => {
-    document.getElementById('full-letter').classList.add('show');
-    document.getElementById('hint').textContent = 'SEALED WITH LOVE ♡';
-  }, 950);
+
+    document.getElementById('letterPaper')
+      .classList.add('show');
+
+    document.getElementById('hint').textContent =
+      'A LETTER, JUST FOR YOU ♡';
+
+  }, 850);
+
 }
+
+function showModal(title, text) {
+
+  document.getElementById('modalTitle')
+    .textContent = title;
+
+  document.getElementById('modalText')
+    .textContent = text;
+
+  document.getElementById('modal')
+    .classList.add('show');
+
+}
+
+function closeModal() {
+
+  document.getElementById('modal')
+    .classList.remove('show');
+
+}
+
+document.addEventListener('keydown', event => {
+
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+
+});
+
 </script>
 
 </body>
