@@ -192,6 +192,7 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
   transition:opacity .7s,transform .8s,width .8s,flex-basis .8s,padding .8s;
 }
 .letter-paper.is-visible{
+  max-height:1000px;
   flex:0 1 440px;
   width:min(440px,100%);
   min-width:0;
