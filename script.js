@@ -39,13 +39,13 @@ function showPage(id, updateHistory = true) {
     next.setAttribute("aria-hidden", "false");
     window.scrollTo({ top: 0, behavior: "instant" });
     if (updateHistory) history.pushState({ page: id }, "", "#" + id);
-  }, 480);
+  }, 760);
 
   window.setTimeout(() => {
     smoke.classList.remove("play");
     document.body.classList.remove("page-transitioning");
     navigationBusy = false;
-  }, 1250);
+  }, 1750);
 }
 
 document.addEventListener("click", event => {
