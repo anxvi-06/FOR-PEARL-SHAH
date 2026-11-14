@@ -4,9 +4,9 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{background:var(--black);color:var(--pale);font-family:"Cormorant Garamond",serif;overflow-x:hidden}
 button,a{-webkit-tap-highlight-color:transparent}
 a{color:inherit;text-decoration:none}
-.wallpaper{position:fixed;inset:0;z-index:-5;background-color:#0b0609;background-image:url("assets/damask.svg"),radial-gradient(ellipse at 50% 35%,#39101d 0%,#16080e 48%,#080507 100%);background-size:360px 520px,cover;background-attachment:fixed}
+.wallpaper{position:fixed;inset:0;z-index:-5;background-color:#0b0609;background-image:url("assets/damask.png"),radial-gradient(ellipse at 50% 35%,#39101d 0%,#16080e 48%,#080507 100%);background-size:360px 520px,cover;background-attachment:fixed}
 .grain{position:fixed;inset:0;z-index:8;pointer-events:none;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
-.lace{position:fixed;top:0;bottom:0;width:42px;z-index:3;pointer-events:none;opacity:.72;background-image:url("assets/lace.svg");background-size:42px 210px;background-repeat:repeat-y}
+.lace{position:fixed;top:0;bottom:0;width:42px;z-index:3;pointer-events:none;opacity:.72;background-image:url("assets/lace.png");background-size:42px 210px;background-repeat:repeat-y}
 .lace-left{left:0}.lace-right{right:0;transform:scaleX(-1)}
 .topbar{height:76px;position:fixed;z-index:12;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,6vw,90px);background:linear-gradient(#090507ed,transparent);border-bottom:1px solid #b89a6822}
 .monogram{font:600 20px Cinzel,serif;letter-spacing:3px;color:var(--pale)}.monogram span{font-size:10px;color:var(--gold);padding:0 5px}
