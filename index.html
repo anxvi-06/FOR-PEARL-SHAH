@@ -1,1223 +1,141 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Pearl Shah ♡</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
-
-<style>
-/* =================================
-   THEME
-================================= */
-
-:root {
-  --black: #080507;
-  --wine: #260812;
-  --burgundy: #4b0d1c;
-  --red: #791c32;
-  --gold: #b99a67;
-  --pale-gold: #e4cfaa;
-  --paper: #d8c5a0;
-  --ink: #38201d;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--black);
-  color: var(--pale-gold);
-  font-family: 'Cormorant Garamond', serif;
-  overflow-x: hidden;
-}
-
-/* =================================
-   DAMASK WALLPAPER
-================================= */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-
-  background:
-    radial-gradient(ellipse at center,
-      rgba(93, 13, 35, .35),
-      transparent 65%),
-    repeating-linear-gradient(
-      45deg,
-      transparent 0 18px,
-      rgba(145, 103, 70, .035) 19px 20px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent 0 18px,
-      rgba(145, 103, 70, .035) 19px 20px
-    ),
-    #080507;
-}
-
-/* Ornamental wallpaper pattern */
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  opacity: .18;
-
-  background-image:
-    radial-gradient(ellipse at 50% 0%,
-      transparent 25%,
-      #9b704c 26%,
-      transparent 28%),
-    radial-gradient(ellipse at 50% 100%,
-      transparent 25%,
-      #9b704c 26%,
-      transparent 28%),
-    radial-gradient(ellipse at 0% 50%,
-      transparent 25%,
-      #9b704c 26%,
-      transparent 28%),
-    radial-gradient(ellipse at 100% 50%,
-      transparent 25%,
-      #9b704c 26%,
-      transparent 28%);
-
-  background-size: 65px 85px;
-}
-
-/* =================================
-   MAIN FRAME
-================================= */
-
-.frame {
-  width: min(1150px, 94%);
-  margin: 25px auto;
-  position: relative;
-
-  border: 1px solid var(--gold);
-  outline: 1px solid rgba(185,154,103,.35);
-  outline-offset: 7px;
-
-  background:
-    linear-gradient(
-      rgba(8,5,7,.91),
-      rgba(20,5,11,.94)
-    );
-
-  box-shadow:
-    0 0 35px #000,
-    inset 0 0 90px rgba(90,12,34,.2);
-}
-
-/* Lace-like frame edges */
-
-.frame::before,
-.frame::after {
-  content: "";
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  height: 17px;
-  z-index: 5;
-  pointer-events: none;
-
-  background:
-    radial-gradient(circle,
-      transparent 5px,
-      var(--gold) 5.5px,
-      transparent 6.5px);
-
-  background-size: 15px 15px;
-}
-
-.frame::before {
-  top: 8px;
-}
-
-.frame::after {
-  bottom: 8px;
-}
-
-/* =================================
-   NAVIGATION
-================================= */
-
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 35px;
-
-  padding: 38px 20px 25px;
-
-  border-bottom: 1px solid rgba(185,154,103,.4);
-}
-
-nav a {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-
-  color: var(--pale-gold);
-  text-decoration: none;
-  transition: .4s;
-}
-
-nav a:hover {
-  color: white;
-  text-shadow: 0 0 15px #a43a52;
-}
-
-/* =================================
-   SECTION DIVIDERS
-================================= */
-
-section {
-  position: relative;
-  padding: 100px clamp(22px, 7vw, 90px);
-  border-bottom: 1px solid rgba(185,154,103,.3);
-  scroll-margin-top: 20px;
-}
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 55px;
-}
-
-.small-title {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.section-heading h2 {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(27px, 5vw, 43px);
-  font-weight: 400;
-  letter-spacing: 5px;
-  margin: 18px 0;
-  color: var(--pale-gold);
-}
-
-.section-heading p {
-  font-size: 20px;
-  font-style: italic;
-  color: #b8a58c;
-}
-
-.divider {
-  text-align: center;
-  color: var(--gold);
-  letter-spacing: 10px;
-  margin: 25px 0;
-}
-
-/* =================================
-   HERO
-================================= */
-
-.hero {
-  min-height: 720px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  overflow: hidden;
-
-  background:
-    radial-gradient(ellipse at center,
-      rgba(105,15,39,.42),
-      transparent 65%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero h1 {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(55px, 11vw, 115px);
-  font-weight: 500;
-  letter-spacing: 15px;
-  color: #ead8b9;
-
-  text-shadow:
-    0 5px 15px #000,
-    0 0 30px rgba(132,34,56,.4);
-}
-
-.hero .script {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(55px, 9vw, 95px);
-  color: #a94157;
-  margin-top: -5px;
-}
-
-.hero p {
-  max-width: 520px;
-  margin: 25px auto 35px;
-  font-size: 22px;
-  line-height: 1.6;
-  color: #c5b49b;
-}
-
-/* Rose-like CSS decoration */
-
-.rose {
-  position: absolute;
-  width: 210px;
-  height: 240px;
-  opacity: .8;
-  filter: drop-shadow(0 15px 20px #000);
-  pointer-events: none;
-}
-
-.rose::before {
-  content: "";
-  position: absolute;
-  width: 115px;
-  height: 115px;
-  top: 25px;
-  left: 40px;
-  border-radius: 50%;
-
-  background:
-    radial-gradient(ellipse at 48% 45%,
-      #3a0918 0 12%,
-      #a63850 13% 18%,
-      #5e1028 20% 28%,
-      #a33c51 30% 37%,
-      #64142b 39% 49%,
-      #9c3048 52% 60%,
-      #3b0919 65%);
-
-  box-shadow:
-    inset 0 0 15px #21040c,
-    0 0 25px rgba(113,20,44,.5);
-}
-
-.rose::after {
-  content: "";
-  position: absolute;
-  width: 90px;
-  height: 150px;
-  top: 115px;
-  left: 75px;
-  border-left: 4px solid #30452d;
-  transform: rotate(-12deg);
-
-  background:
-    radial-gradient(ellipse at 20% 30%,
-      #435d39 0 20%,
-      transparent 22%),
-    radial-gradient(ellipse at 85% 65%,
-      #30482f 0 20%,
-      transparent 22%);
-}
-
-.rose.left {
-  left: -65px;
-  top: 22%;
-  transform: rotate(-25deg);
-}
-
-.rose.right {
-  right: -65px;
-  bottom: 8%;
-  transform: rotate(155deg);
-}
-
-.button {
-  display: inline-block;
-  padding: 15px 30px;
-
-  border: 1px solid var(--gold);
-  background: rgba(65,10,25,.7);
-
-  color: var(--pale-gold);
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  transition: .4s;
-}
-
-.button:hover {
-  background: var(--gold);
-  color: var(--black);
-  box-shadow: 0 0 25px rgba(185,154,103,.4);
-}
-
-/* =================================
-   INVITATION CARD
-================================= */
-
-.invitation {
-  max-width: 760px;
-  margin: auto;
-  position: relative;
-  text-align: center;
-
-  padding: 75px 35px;
-
-  color: var(--ink);
-
-  background:
-    radial-gradient(ellipse at 50% 0%,
-      rgba(255,255,255,.5),
-      transparent 55%),
-    repeating-linear-gradient(
-      0deg,
-      #d9c6a3 0 3px,
-      #d2bd97 4px 5px
-    );
-
-  border: 12px double #927047;
-  outline: 1px solid #d2b17c;
-  outline-offset: 8px;
-
-  box-shadow: 0 20px 55px #000;
-}
-
-.invitation::before,
-.invitation::after {
-  content: "❦";
-  position: absolute;
-  color: #7e2639;
-  font-size: 65px;
-}
-
-.invitation::before {
-  top: 5px;
-  left: 15px;
-}
-
-.invitation::after {
-  bottom: 5px;
-  right: 15px;
-}
-
-.invitation h3 {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(25px, 5vw, 43px);
-  color: #48251f;
-  font-weight: 500;
-  margin: 25px 0 5px;
-}
-
-.invitation .script {
-  font-family: 'Great Vibes', cursive;
-  font-size: 60px;
-  color: #84263d;
-}
-
-.invitation p {
-  max-width: 550px;
-  margin: 25px auto;
-  font-size: 22px;
-  line-height: 1.7;
-}
-
-.seal {
-  height: 70px;
-  width: 70px;
-  margin: 25px auto 0;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-  border: 3px double #d1ad72;
-
-  background:
-    radial-gradient(circle at 35% 25%,
-      #a94b5b,
-      #64172a 65%,
-      #2c0812);
-
-  color: #ead5ad;
-  font-family: 'Cinzel', serif;
-  font-size: 23px;
-
-  box-shadow: 0 5px 15px #755038;
-}
-
-/* =================================
-   LETTER AND ENVELOPE
-================================= */
-
-.letter-layout {
-  display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.envelope-area {
-  min-height: 340px;
-  display: grid;
-  place-items: center;
-}
-
-.envelope {
-  width: min(100%, 330px);
-  height: 220px;
-  position: relative;
-  cursor: pointer;
-  filter: drop-shadow(0 15px 20px #000);
-  transition: .4s;
-}
-
-.envelope:hover {
-  transform: translateY(-7px);
-}
-
-.envelope-back {
-  position: absolute;
-  inset: 0;
-  background: #4c0e20;
-  border: 1px solid var(--gold);
-}
-
-.envelope-front {
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(145deg,#7b253b,#350b18);
-
-  clip-path: polygon(
-    0 0,
-    50% 58%,
-    100% 0,
-    100% 100%,
-    0 100%
-  );
-}
-
-.envelope-flap {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-
-  background: linear-gradient(145deg,#96394e,#4a1020);
-
-  clip-path: polygon(0 0,100% 0,50% 58%);
-  transform-origin: top;
-  transition: .7s;
-}
-
-.envelope.open .envelope-flap {
-  transform: rotateX(180deg);
-}
-
-.wax-seal {
-  position: absolute;
-  z-index: 3;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-
-  width: 57px;
-  height: 57px;
-  border-radius: 50%;
-
-  display: grid;
-  place-items: center;
-
-  background: radial-gradient(circle at 35% 30%,#b34c5e,#4e0c1d);
-  border: 2px solid #c6a46c;
-
-  color: #ead5ae;
-  font-family: 'Cinzel', serif;
-  font-size: 20px;
-
-  transition: .4s;
-}
-
-.envelope.open .wax-seal {
-  opacity: 0;
-}
-
-.letter-paper {
-  padding: 45px;
-
-  color: var(--ink);
-
-  background:
-    radial-gradient(ellipse at 20% 15%,
-      rgba(255,255,255,.45),
-      transparent 50%),
-    linear-gradient(135deg,#dfcda9,#c9b48c);
-
-  border: 9px double #927047;
-  box-shadow: 0 15px 40px #000;
-
-  position: relative;
-}
-
-.letter-paper h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.letter-paper p {
-  font-size: 20px;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.letter-paper .script {
-  text-align: right;
-  font-family: 'Great Vibes', cursive;
-  font-size: 43px;
-  color: #84263d;
-}
-
-/* =================================
-   ARCHIVE CARDS
-================================= */
-
-.archive-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 30px;
-}
-
-.archive-card {
-  position: relative;
-  min-height: 220px;
-  padding: 35px 25px;
-
-  text-align: center;
-  color: var(--pale-gold);
-
-  border: 1px solid var(--gold);
-  outline: 1px solid rgba(185,154,103,.3);
-  outline-offset: 5px;
-
-  background:
-    radial-gradient(ellipse at center,
-      rgba(100,16,39,.5),
-      transparent 75%),
-    linear-gradient(145deg,#19080e,#080507);
-
-  cursor: pointer;
-  transition: .4s;
-}
-
-.archive-card::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(185,154,103,.35);
-  pointer-events: none;
-}
-
-.archive-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 15px 35px #000;
-}
-
-.archive-card .symbol {
-  color: #a13d52;
-  font-size: 37px;
-  margin-bottom: 15px;
-}
-
-.archive-card h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 17px;
-  letter-spacing: 3px;
-  margin-bottom: 12px;
-}
-
-.archive-card p {
-  color: #b7a58d;
-  font-size: 19px;
-  line-height: 1.5;
-}
-
-/* =================================
-   FOOTER
-================================= */
-
-footer {
-  text-align: center;
-  padding: 75px 20px;
-}
-
-footer .script {
-  font-family: 'Great Vibes', cursive;
-  color: #a13d52;
-  font-size: 53px;
-  margin: 15px 0;
-}
-
-footer p {
-  color: #b7a58d;
-  font-size: 19px;
-}
-
-/* =================================
-   MODAL
-================================= */
-
-.modal {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-
-  display: none;
-  place-items: center;
-  padding: 20px;
-
-  background: rgba(0,0,0,.85);
-  backdrop-filter: blur(8px);
-}
-
-.modal.show {
-  display: grid;
-}
-
-.modal-content {
-  width: min(600px,100%);
-  padding: 45px 30px;
-
-  text-align: center;
-  color: var(--ink);
-
-  background: linear-gradient(135deg,#e0cfad,#cdb88f);
-  border: 10px double #98774c;
-}
-
-.modal-content h3 {
-  font-family: 'Cinzel', serif;
-  margin: 15px 0;
-}
-
-.modal-content p {
-  font-size: 21px;
-  line-height: 1.6;
-}
-
-.close {
-  float: right;
-  border: none;
-  background: none;
-  color: #5c2930;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-/* =================================
-   SMOKE + WIND TRANSITION
-================================= */
-
-#smoke {
-  position: fixed;
-  inset: 0;
-  z-index: 900;
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
-
-  background:
-    radial-gradient(ellipse at 20% 50%,
-      rgba(145,111,117,.45),
-      transparent 45%),
-    radial-gradient(ellipse at 80% 50%,
-      rgba(60,48,55,.85),
-      transparent 50%),
-    rgba(5,2,5,.8);
-}
-
-#smoke.active {
-  visibility: visible;
-  animation: smokeFade 1.3s ease-in-out forwards;
-}
-
-#smoke::before,
-#smoke::after {
-  content: "";
-  position: absolute;
-  width: 150%;
-  height: 80%;
-  left: -25%;
-  border-radius: 50%;
-  filter: blur(35px);
-
-  background:
-    radial-gradient(ellipse,
-      rgba(170,145,145,.32),
-      transparent 65%),
-    radial-gradient(ellipse at 70% 40%,
-      rgba(100,48,64,.5),
-      transparent 60%);
-}
-
-#smoke::before {
-  top: 0;
-  animation: windLeft 1.3s ease-in-out;
-}
-
-#smoke::after {
-  bottom: -15%;
-  animation: windRight 1.3s ease-in-out;
-}
-
-@keyframes smokeFade {
-  0% { opacity: 0; }
-  25%,75% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
-}
-
-@keyframes windLeft {
-  0% { transform: translateX(-45%) rotate(-8deg); }
-  50% { transform: translateX(5%) rotate(5deg); }
-  100% { transform: translateX(55%) rotate(-5deg); }
-}
-
-@keyframes windRight {
-  0% { transform: translateX(45%) rotate(8deg); }
-  50% { transform: translateX(-5%) rotate(-5deg); }
-  100% { transform: translateX(-55%) rotate(5deg); }
-}
-
-/* Floating petals */
-
-.petal {
-  position: fixed;
-  top: -30px;
-  z-index: 950;
-  color: #963047;
-  pointer-events: none;
-  animation: petalFall 2.7s linear forwards;
-}
-
-@keyframes petalFall {
-  to {
-    transform: translate(100px,110vh) rotate(500deg);
-    opacity: 0;
-  }
-}
-
-/* =================================
-   MOBILE
-================================= */
-
-@media(max-width:720px) {
-
-  .frame {
-    width: 92%;
-    margin: 15px auto;
-  }
-
-  nav {
-    gap: 17px;
-  }
-
-  nav a {
-    font-size: 9px;
-  }
-
-  .hero {
-    min-height: 590px;
-  }
-
-  .rose {
-    opacity: .35;
-    transform: scale(.75);
-  }
-
-  .rose.left {
-    left: -110px;
-  }
-
-  .rose.right {
-    right: -110px;
-  }
-
-  section {
-    padding: 75px 22px;
-  }
-
-  .letter-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .archive-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .letter-paper {
-    padding: 30px;
-  }
-}
-
-/* Accessibility */
-
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    scroll-behavior: auto !important;
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090507">
+  <meta name="description" content="A little birthday archive made for Pearl Shah.">
+  <title>For Pearl Shah — A Birthday Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="wallpaper" aria-hidden="true"></div>
+  <div class="lace lace-left" aria-hidden="true"></div>
+  <div class="lace lace-right" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="petal-field" aria-hidden="true"></div>
+  <div class="smoke-screen" aria-hidden="true"><span></span><span></span><span></span></div>
 
-<div id="smoke"></div>
+  <header class="topbar">
+    <a class="monogram" href="#home" aria-label="Back to top">P<span>✦</span>S</a>
+    <nav aria-label="Main navigation">
+      <a href="#invitation">THE INVITATION</a>
+      <a href="#letter">A LETTER</a>
+      <a href="#archive">THE ARCHIVE</a>
+    </nav>
+    <button class="sound-toggle" type="button" aria-label="Toggle ambient sound" title="Sound is off by default">♬ <span>SOUND OFF</span></button>
+  </header>
 
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <button class="close" onclick="closeModal()">×</button>
-    <div class="small-title" style="color:#84623d">A little keepsake</div>
-    <h3 id="modal-title">For Pearl</h3>
-    <p id="modal-text"></p>
-  </div>
-</div>
-
-<div class="frame">
-
-<nav>
-  <a href="#home">The beginning</a>
-  <a href="#invitation">Invitation</a>
-  <a href="#letter">A letter</a>
-  <a href="#archive">The archive</a>
-</nav>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-  <div class="rose left"></div>
-  <div class="rose right"></div>
-
-  <div class="hero-content">
-    <div class="small-title">A little world, made for you</div>
-
-    <h1>PEARL</h1>
-    <div class="script">Shah</div>
-
-    <div class="divider">──── ✧ ❦ ✧ ────</div>
-
-    <p>
-      Some people deserve more than a birthday message.
-      Some people deserve a little world of their own.
-    </p>
-
-    <a href="#invitation" class="button">Enter the story</a>
-  </div>
-
-</section>
-
-<!-- INVITATION -->
-
-<section id="invitation">
-
-  <div class="section-heading">
-    <div class="small-title">A formal little invitation</div>
-    <h2>FOR PEARL SHAH</h2>
-    <p>Sealed with affection, wrapped in mystery.</p>
-  </div>
-
-  <div class="invitation">
-
-    <div class="small-title" style="color:#72532f">
-      You are cordially invited to
-    </div>
-
-    <h3>A CELEBRATION OF YOU</h3>
-
-    <div class="script">dearest Pearl</div>
-
-    <div class="divider">✧ ❦ ✧</div>
-
-    <p>
-      To the girl who deserves all the lovely things life has to offer.
-      This little corner of the internet is dedicated to you,
-      your existence, and all the memories still waiting to happen.
-    </p>
-
-    <div class="seal">P</div>
-
-  </div>
-
-</section>
-
-<!-- LETTER -->
-
-<section id="letter">
-
-  <div class="section-heading">
-    <div class="small-title">From the heart</div>
-    <h2>AN UNFINISHED LETTER</h2>
-    <p>Some things are better written than said.</p>
-  </div>
-
-  <div class="letter-layout">
-
-    <div class="envelope-area">
-      <div class="envelope" id="envelope" onclick="openLetter()">
-
-        <div class="envelope-back"></div>
-        <div class="envelope-flap"></div>
-        <div class="envelope-front"></div>
-        <div class="wax-seal">P</div>
-
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-rose hero-rose-one" aria-hidden="true"><img src="assets/rose.svg" alt=""></div>
+      <div class="hero-rose hero-rose-two" aria-hidden="true"><img src="assets/rose.svg" alt=""></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> AN OCCASION WORTH REMEMBERING <span></span></p>
+        <p class="hero-kicker">A little something, for</p>
+        <h1>PEARL</h1>
+        <p class="hero-script">Shah</p>
+        <div class="gold-rule"><i>✦</i></div>
+        <p class="hero-subtitle">A birthday archive of little things, lovely memories<br>and all the words that deserve to be kept.</p>
+        <a class="wax-button" href="#invitation"><span>ENTER THE ARCHIVE</span><b>↗</b></a>
+        <p class="hero-date">A DAY MADE A LITTLE MORE SPECIAL</p>
       </div>
-    </div>
+      <div class="scroll-cue"><span></span> SCROLL TO UNFOLD</div>
+    </section>
 
-    <div class="letter-paper">
+    <section class="invitation section" id="invitation">
+      <div class="section-heading">
+        <span class="section-number">I — THE INVITATION</span>
+        <h2>An evening <em>in your honour.</em></h2>
+        <p>Some people deserve more than a message on a screen.</p>
+      </div>
+      <article class="invite-card">
+        <div class="invite-inner">
+          <div class="invite-flourish top">❧ ❦ ❧</div>
+          <p class="invite-small">YOU ARE CORDIALLY INVITED TO CELEBRATE</p>
+          <h3>Another chapter<br><i>of Pearl.</i></h3>
+          <div class="invite-divider"><span>✦</span></div>
+          <p class="invite-copy">For the laughs that arrive unexpectedly, the memories that stay long after the moment has passed, and the kind of friendship that makes ordinary days feel special.</p>
+          <p class="invite-name">Pearl Shah</p>
+          <p class="invite-bottom">WITH LOVE, AND A LITTLE DRAMA</p>
+          <div class="invite-flourish bottom">❧ ❦ ❧</div>
+        </div>
+        <img class="invite-rose" src="assets/rose.svg" alt="" aria-hidden="true">
+      </article>
+      <div class="section-footnote">PLEASE, MAKE YOURSELF AT HOME <span>✦</span></div>
+    </section>
 
-      <h3>Dear Pearl,</h3>
+    <section class="letter-section section" id="letter">
+      <div class="section-heading">
+        <span class="section-number">II — THE LETTER</span>
+        <h2>Words, <em>kept close.</em></h2>
+        <p>A note for the birthday girl. Open it when you're ready.</p>
+      </div>
+      <div class="letter-stage">
+        <button class="envelope" type="button" aria-label="Open the birthday letter" aria-expanded="false">
+          <span class="envelope-back"></span>
+          <span class="envelope-paper"><span>For Pearl,<br>with love.</span></span>
+          <span class="envelope-front"></span>
+          <span class="envelope-flap"></span>
+          <span class="wax-seal">P</span>
+          <span class="envelope-label">OPEN YOUR LETTER</span>
+        </button>
+        <article class="letter-paper" aria-hidden="true">
+          <div class="paper-corner corner-one">❦</div><div class="paper-corner corner-two">❦</div>
+          <p class="letter-date">A NOTE FOR YOU</p>
+          <h3>Dear Pearl,</h3>
+          <p>Happy birthday, Pearl! I hope this new chapter brings you the kind of happiness that sneaks up on you in the middle of an ordinary day, the kind of laughter that makes your stomach hurt, and memories you'll keep coming back to.</p>
+          <p>May life be gentle with you when it can, exciting when you need it, and full of people who remind you how loved and appreciated you are. Keep being wonderfully, unmistakably you.</p>
+          <p>Here's to more stories, more ridiculous moments, more photos we will probably judge later, and a hundred little reasons to smile.</p>
+          <p class="letter-sign">With lots of love, <span>♡</span></p>
+          <div class="letter-seal">P</div>
+        </article>
+      </div>
+      <p class="letter-hint">TAP THE ENVELOPE TO OPEN YOUR LETTER</p>
+    </section>
 
-      <p>
-        I wanted to make something that felt a little more special
-        than a simple birthday wish. So here it is: a tiny corner
-        of the internet, made just for you.
-      </p>
+    <section class="archive-section section" id="archive">
+      <div class="section-heading">
+        <span class="section-number">III — THE ARCHIVE</span>
+        <h2>Little things, <em>forever.</em></h2>
+        <p>A few drawers from the very important department of us.</p>
+      </div>
+      <div class="archive-grid">
+        <button class="archive-card memory-card" data-title="The memories" data-copy="The random conversations, the unexpected laughs, the days that became stories. Add your favourite shared memory here when you want to make this page even more personal.">
+          <span class="card-index">01 / KEEPSAKES</span><span class="card-icon">✧</span>
+          <span class="card-title">The memories</span><span class="card-caption">A collection of moments worth keeping</span><span class="card-open">OPEN DRAWER ↗</span>
+        </button>
+        <button class="archive-card photo-card" data-title="The photographs" data-copy="A place for the pictures that deserve their own little frame. Replace this note with a favourite photo or a tiny story behind it.">
+          <span class="card-index">02 / PORTRAITS</span><span class="card-icon">❀</span>
+          <span class="card-title">The photographs</span><span class="card-caption">Proof that the good days happened</span><span class="card-open">OPEN DRAWER ↗</span>
+        </button>
+        <button class="archive-card joke-card" data-title="The inside jokes" data-copy="The jokes that make absolutely no sense to anyone else. Add your favourite inside joke here — the more specific and ridiculous, the better.">
+          <span class="card-index">03 / CLASSIFIED</span><span class="card-icon">☾</span>
+          <span class="card-title">The inside jokes</span><span class="card-caption">Highly confidential. Obviously.</span><span class="card-open">OPEN DRAWER ↗</span>
+        </button>
+      </div>
+      <div class="closing-note">
+        <span class="closing-ornament">✦</span>
+        <p>May this year be a beautiful one.</p>
+        <h2>Happy Birthday, <em>Pearl.</em></h2>
+        <span class="closing-small">END OF THIS LITTLE ARCHIVE · BEGINNING OF A NEW CHAPTER</span>
+      </div>
+    </section>
+  </main>
 
-      <p>
-        I hope this new chapter brings you beautiful surprises,
-        unforgettable memories, genuine happiness, and every little
-        thing you've been quietly wishing for.
-      </p>
+  <footer><span>MADE WITH LOVE</span><span class="footer-star">✦</span><span>FOR PEARL SHAH</span></footer>
 
-      <p>
-        Never forget that you deserve kindness, good people,
-        laughter that makes your stomach hurt, and moments
-        you will want to remember forever.
-      </p>
-
-      <p>
-        Here's to more stories, more chaos, more memories,
-        and all the lovely things yet to come.
-      </p>
-
-      <div class="script">With love ♡</div>
-
-    </div>
-
+  <div class="memory-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <button class="modal-close" type="button" aria-label="Close">×</button>
+    <span class="modal-kicker">FROM THE ARCHIVE</span>
+    <h2 id="modal-title"></h2>
+    <p class="modal-copy"></p>
+    <span class="modal-ornament">❦</span>
   </div>
 
-</section>
-
-<!-- ARCHIVE -->
-
-<section id="archive">
-
-  <div class="section-heading">
-    <div class="small-title">The little collection</div>
-    <h2>THE ARCHIVE</h2>
-    <p>Little things that deserve to be kept.</p>
-  </div>
-
-  <div class="archive-grid">
-
-    <button class="archive-card"
-      onclick="showMemory('The memories','The silly moments, the long conversations, the unexpected adventures, and all the tiny memories that become the best ones.')">
-
-      <div class="symbol">❦</div>
-      <h3>THE MEMORIES</h3>
-      <p>Little moments that deserve a permanent place.</p>
-
-    </button>
-
-    <button class="archive-card"
-      onclick="showMemory('The photographs','A collection of snapshots, favourite pictures, and moments worth looking back on.')">
-
-      <div class="symbol">✧</div>
-      <h3>THE PHOTOGRAPHS</h3>
-      <p>Snapshots and favourite little moments.</p>
-
-    </button>
-
-    <button class="archive-card"
-      onclick="showMemory('The inside jokes','The jokes that make absolutely no sense to anyone else. The references that need no explanation. The kind of chaos that is simply yours.')">
-
-      <div class="symbol">♡</div>
-      <h3>THE INSIDE JOKES</h3>
-      <p>Things that make no sense to anyone else.</p>
-
-    </button>
-
-    <button class="archive-card"
-      onclick="showMemory('The little notes','A small reminder: you are appreciated, you are celebrated, and you deserve so many good things.')">
-
-      <div class="symbol">✉</div>
-      <h3>THE LITTLE NOTES</h3>
-      <p>Words that should never get lost in the noise.</p>
-
-    </button>
-
-  </div>
-
-</section>
-
-<footer>
-
-  <div class="divider">✧ ❦ ✧</div>
-
-  <div class="small-title">Made with affection</div>
-
-  <div class="script">For Pearl, always.</div>
-
-  <p>Some people make ordinary days feel a little less ordinary.</p>
-
-</footer>
-
-</div>
-
-<script>
-
-/* SMOKE TRANSITION */
-
-const smoke = document.getElementById("smoke");
-
-let busy = false;
-
-function createPetals() {
-
-  for (let i = 0; i < 12; i++) {
-
-    const petal = document.createElement("span");
-
-    petal.className = "petal";
-    petal.textContent = Math.random() > .5 ? "✿" : "❧";
-
-    petal.style.left = Math.random() * 100 + "vw";
-    petal.style.animationDelay = Math.random() * .5 + "s";
-    petal.style.fontSize = (12 + Math.random() * 15) + "px";
-
-    document.body.appendChild(petal);
-
-    setTimeout(() => petal.remove(), 3000);
-
-  }
-
-}
-
-function navigateTo(id) {
-
-  const section = document.querySelector(id);
-
-  if (!section) return;
-
-  if (busy) {
-    section.scrollIntoView({behavior:"smooth"});
-    return;
-  }
-
-  busy = true;
-
-  smoke.classList.remove("active");
-  void smoke.offsetWidth;
-  smoke.classList.add("active");
-
-  createPetals();
-
-  setTimeout(() => {
-    section.scrollIntoView({behavior:"smooth",block:"start"});
-  }, 450);
-
-  setTimeout(() => {
-    smoke.classList.remove("active");
-    busy = false;
-  }, 1350);
-
-}
-
-document.querySelectorAll('nav a,.hero a').forEach(link => {
-
-  link.addEventListener("click", event => {
-
-    const target = link.getAttribute("href");
-
-    if (target && target.startsWith("#")) {
-
-      event.preventDefault();
-      navigateTo(target);
-
-    }
-
-  });
-
-});
-
-
-/* LETTER */
-
-function openLetter() {
-
-  const envelope = document.getElementById("envelope");
-
-  envelope.classList.toggle("open");
-
-  showMemory(
-    "A letter for Pearl",
-    "Dear Pearl, this little corner of the internet is a reminder that you deserve happiness, kindness, laughter, and a year filled with beautiful memories. I hope this page makes you feel celebrated. With love ♡"
-  );
-
-}
-
-
-/* MEMORY CARDS */
-
-function showMemory(title, text) {
-
-  document.getElementById("modal-title").textContent = title;
-  document.getElementById("modal-text").textContent = text;
-
-  document.getElementById("modal").classList.add("show");
-
-}
-
-function closeModal() {
-
-  document.getElementById("modal").classList.remove("show");
-
-}
-
-document.getElementById("modal").addEventListener("click", event => {
-
-  if (event.target.id === "modal") {
-    closeModal();
-  }
-
-});
-
-document.addEventListener("keydown", event => {
-
-  if (event.key === "Escape") {
-    closeModal();
-  }
-
-});
-
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
