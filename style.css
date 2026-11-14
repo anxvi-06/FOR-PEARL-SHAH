@@ -163,3 +163,15 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
   .hero-rose img,.invite-rose{opacity:.43}
   .lace{opacity:.12}
 }
+
+
+/* COMPLETE BACKGROUND ARTWORK — USE AS ONE COHESIVE IMAGE */
+.wallpaper{
+  background-color:#080406;
+  background-image:linear-gradient(rgba(7,3,6,.16),rgba(7,3,6,.16)),url("assets/background.png");
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+.lace,.hero-rose,.invite-rose{display:none!important}
