@@ -128,3 +128,38 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
   .lace{opacity:.2}
   .hero-rose img,.invite-rose{opacity:.62}
 }
+
+
+/* REFINED ROSE + LACE INTEGRATION */
+.hero-rose{
+  overflow:visible;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 38%,#000c 58%,#0006 72%,transparent 88%);
+  mask-image:radial-gradient(ellipse at 50% 50%,#000 38%,#000c 58%,#0006 72%,transparent 88%);
+}
+.hero-rose img{
+  display:block;
+  mix-blend-mode:screen;
+  opacity:.52;
+  filter:saturate(.72) brightness(.78) contrast(1.08);
+}
+.hero-rose-one{opacity:.62}
+.hero-rose-two{opacity:.38}
+.invite-rose{
+  mix-blend-mode:screen;
+  opacity:.5;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 38%,#000b 60%,transparent 88%);
+  mask-image:radial-gradient(ellipse at 50% 50%,#000 38%,#000b 60%,transparent 88%);
+}
+.lace{
+  opacity:.16;
+  mix-blend-mode:screen;
+  filter:brightness(.72) sepia(.3) saturate(.55);
+  background-size:42px 210px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 88%,transparent 100%),linear-gradient(to right,transparent 0%,#000 35%,#000 65%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 88%,transparent 100%);
+}
+@media(max-width:800px){
+  .hero-rose img,.invite-rose{opacity:.43}
+  .lace{opacity:.12}
+}
