@@ -222,29 +222,47 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
 
 
 /* VISIBLE AGED PARCHMENT — INVITATION, ENVELOPE INSERT + LETTER */
+
+/* ANTIQUE CRUMPLED PARCHMENT PAPER */
+
 .invite-inner,
 .envelope-paper,
-.letter-paper{
-  background-color:#d8bd8d !important;
-  background-image:
-    radial-gradient(ellipse at 8% 12%,rgba(255,246,218,.88) 0%,transparent 27%),
-    radial-gradient(ellipse at 92% 84%,rgba(111,68,34,.34) 0%,transparent 32%),
-    radial-gradient(ellipse at 78% 14%,rgba(126,83,43,.20) 0%,transparent 24%),
-    radial-gradient(ellipse at 22% 88%,rgba(255,239,199,.48) 0%,transparent 30%),
-    repeating-linear-gradient(117deg,rgba(94,65,35,.055) 0px,rgba(94,65,35,.055) 1px,transparent 2px,transparent 9px),
-    repeating-linear-gradient(18deg,rgba(255,250,226,.16) 0px,rgba(255,250,226,.16) 1px,transparent 2px,transparent 13px),
-    linear-gradient(135deg,#f0dfb9 0%,#d8bd8d 48%,#c5a575 100%) !important;
-  background-blend-mode:normal,multiply,multiply,screen,multiply,screen,normal;
-  box-shadow:inset 0 0 38px rgba(91,58,28,.28),inset 0 0 8px rgba(255,248,224,.55);
+.letter-paper {
+    background-color: #d6bd91 !important;
+
+    background-image:
+        linear-gradient(
+            rgba(91, 58, 29, 0.16),
+            rgba(91, 58, 29, 0.16)
+        ),
+        url("assets/antique-parchment.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+
+    border: 1px solid #92704a !important;
+
+    box-shadow:
+        inset 0 0 35px rgba(75, 46, 22, 0.32),
+        inset 0 0 9px rgba(255, 239, 204, 0.5),
+        0 15px 45px rgba(0, 0, 0, 0.35);
 }
-.invite-inner{
-  border-color:#765333;
+
+/* INVITATION PAPER */
+.invite-inner {
+    outline: 1px solid #ead5ad;
+    outline-offset: -8px;
 }
-.envelope-paper{
-  border:1px solid #a17d4e;
-  box-shadow:inset 0 0 22px rgba(91,58,28,.24);
+
+/* ENVELOPE LETTER INSERT */
+.envelope-paper {
+    border-color: #98754b !important;
 }
-.letter-paper{
-  border-color:#a18458;
-  box-shadow:0 20px 65px #000a,inset 0 0 42px rgba(91,58,28,.30),inset 0 0 8px rgba(255,248,224,.6);
+
+/* OPEN LETTER */
+.letter-paper {
+    border-color: #98754b !important;
+    outline: 1px solid #ead5ad;
+    outline-offset: -7px;
 }
