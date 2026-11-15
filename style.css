@@ -528,3 +528,25 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
   .envelope-wrap > .letter-next{bottom:-58px}
 }
 
+/* ACCESSIBILITY: BOOST CONTRAST FOR SMALL GOLD DETAILS */
+.card-index,
+.card-open,
+.closing-small,
+footer,
+.section-number,
+.modal-kicker {
+  color: #e4c995;
+  text-shadow: 0 1px 3px #000;
+}
+.card-index,
+.card-open,
+.closing-small,
+footer,
+.section-number,
+.modal-kicker {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+.card-caption {
+  color: #dfc9a5;
+}
