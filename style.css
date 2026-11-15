@@ -309,7 +309,7 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
     left: auto !important;
     justify-self: center;
     align-self: center;
-    z-index: 2;
+    z-index: 6;
     width: min(440px, calc(100% - 24px));
     max-height: 0;
     min-width: 0;
