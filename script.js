@@ -36,26 +36,44 @@ document.addEventListener("click", event => {
   }, 850);
 });
 
-// Letter page: envelope opens the parchment.
+
+/* CINEMATIC ENVELOPE + LETTER REVEAL */
+
 const envelope = document.querySelector(".envelope");
 const letter = document.querySelector(".letter-paper");
+
+let letterRevealTimer;
+
 if (envelope && letter) {
-  envelope.addEventListener("click", () => {
-    const opened = envelope.classList.toggle("is-open");
-    envelope.setAttribute("aria-expanded", String(opened));
-    if (opened) {
-      window.setTimeout(() => {
-        letter.classList.add("is-visible");
-        letter.setAttribute("aria-hidden", "false");
-      }, 450);
-    } else {
-      letter.classList.remove("is-visible");
-      letter.setAttribute("aria-hidden", "true");
-    }
-  });
+    envelope.addEventListener("click", () => {
+
+        const opened = envelope.classList.toggle("is-open");
+
+        envelope.setAttribute(
+            "aria-expanded",
+            String(opened)
+        );
+
+        clearTimeout(letterRevealTimer);
+
+        if (opened) {
+
+            // Let the envelope flap open first
+            letterRevealTimer = window.setTimeout(() => {
+                letter.classList.add("is-visible");
+                letter.setAttribute("aria-hidden", "false");
+            }, 350);
+
+        } else {
+
+            // Slide the letter back inside
+            letter.classList.remove("is-visible");
+            letter.setAttribute("aria-hidden", "true");
+
+        }
+    });
 }
-createPetals(7);
-window.setInterval(() => createPetals(2), 5000);
+
 
 
 // Invitation -> letter: reveal the next screen without navigating to another HTML page.
