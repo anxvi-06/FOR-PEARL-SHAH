@@ -21,7 +21,7 @@
     <a class="monogram" href="index.html" data-page-link aria-label="Home">P<span>✦</span>S</a>
     <nav aria-label="Main navigation">
       <a href="invitation.html" data-page-link>THE INVITATION</a>
-      <a href="letter.html" data-page-link>A LETTER</a>
+      <a href="#letter" id="letter-nav">A LETTER</a>
       <a href="archive.html" data-page-link>THE ARCHIVE</a>
     </nav>
     <span class="sound-toggle">♬ <span>SOUND OFF</span></span>
@@ -46,7 +46,39 @@
         <img class="invite-rose" src="assets/rose.png" alt="" aria-hidden="true">
       </article>
       <div class="section-footnote">PLEASE, MAKE YOURSELF AT HOME <span>✦</span></div>
-    </section></main>
+      <button class="wax-button next-screen" id="next-to-letter" type="button"><span>NEXT — A LETTER</span><b>↗</b></button>
+    </section>
+    <section class="letter-screen" id="letter-screen" aria-hidden="true"><section class="letter-section section" id="letter">
+      <div class="section-heading">
+        <span class="section-number">II — THE LETTER</span>
+        <h2>Words, <em>kept close.</em></h2>
+        <p>A note for the birthday girl. Open it when you're ready.</p>
+      </div>
+      <div class="letter-stage">
+        <button class="envelope" type="button" aria-label="Open Pearl’s birthday letter" aria-expanded="false" aria-controls="pearl-letter">
+          <span class="envelope-back"></span>
+          <span class="envelope-paper"><span>For Pearl,<br>with love.</span></span>
+          <span class="envelope-front"></span>
+          <span class="envelope-flap"></span>
+          <span class="wax-seal">P</span>
+          <span class="envelope-label">OPEN YOUR LETTER</span>
+        </button>
+        <article class="letter-paper" id="pearl-letter" aria-hidden="true">
+          <div class="paper-corner corner-one">❦</div><div class="paper-corner corner-two">❦</div>
+          <p class="letter-date">A NOTE FOR YOU</p>
+          <h3>Dear Pearl,</h3>
+          <p>Happy birthday to one of the most unexpectedly special people in my life. I genuinely love how easily we talk. We can yap about absolutely anything, meet up, pick up a conversation like no time has passed, and somehow never run out of things to say.</p>
+          <p>But one thing I appreciate even more is how much you trust me. The way you tell me about your life, the little things and the difficult things too, means more than I can properly explain. I know not everyone gets to hear those parts of someone’s story, so I hope you know I never take it for granted. And honestly, the entire Batman lore still lives in my head. 😭</p>
+          <p>Now, a few important facts must be documented: you are an absolutely brilliant dancer and a singer whose confidence deserves its own award. You’re a topper, a proper padaku nerd, and somehow also the CEO of next-level gaali. Truly a range of talents.</p>
+          <p>I hope this year brings you every good thing you’ve been working towards. Keep dancing, keep being your wonderfully chaotic self, and never lose that confidence. And Inshallah, may that very specific bad boy you're waiting for finally make an appearance. Ameen. 😭</p>
+          <p>I know I may not hold the official “best friend” title (yes, the quotation marks are intentional), but what we have means a lot to me. I’m genuinely grateful we got this close. Here’s to more yapping, more memories, more ridiculous stories, and many more moments that become our favourite things to look back on.</p>
+          <p class="letter-sign">With lots of love, <span>♡</span><br>— Anavia</p>
+          <div class="letter-seal">P</div>
+        </article>
+      </div>
+      <p class="letter-hint">TAP THE ENVELOPE TO OPEN YOUR LETTER</p>
+    </section></section>
+  </main>
   <footer><span>MADE WITH LOVE</span><span class="footer-star">✦</span><span>FOR PEARL SHAH</span></footer>
   <script src="script.js"></script>
 </body>
