@@ -100,3 +100,40 @@ if (letterNav) letterNav.addEventListener("click", event => {
   event.preventDefault();
   revealLetterScreen();
 });
+
+/* ARCHIVE DRAWERS — OPEN THEIR NOTES IN A SHARED MODAL */
+const archiveCards = document.querySelectorAll(".archive-card[data-title][data-copy]");
+if (archiveCards.length) {
+  const drawerModal = document.createElement("section");
+  drawerModal.className = "memory-modal";
+  drawerModal.hidden = true;
+  drawerModal.setAttribute("role", "dialog");
+  drawerModal.setAttribute("aria-modal", "true");
+  drawerModal.setAttribute("aria-labelledby", "drawer-modal-title");
+  drawerModal.innerHTML = '<button class="modal-close" type="button" aria-label="Close drawer">×</button><span class="modal-kicker">FROM THE ARCHIVE</span><h2 id="drawer-modal-title"></h2><p class="modal-copy"></p><span class="modal-ornament">✦ ❦ ✦</span>';
+  document.body.appendChild(drawerModal);
+
+  const closeDrawer = () => {
+    drawerModal.hidden = true;
+    document.body.classList.remove("drawer-open");
+  };
+
+  archiveCards.forEach(card => {
+    card.addEventListener("click", () => {
+      drawerModal.querySelector("#drawer-modal-title").textContent = card.dataset.title;
+      drawerModal.querySelector(".modal-copy").textContent = card.dataset.copy;
+      drawerModal.hidden = false;
+      document.body.classList.add("drawer-open");
+      drawerModal.querySelector(".modal-close").focus();
+    });
+  });
+
+  drawerModal.querySelector(".modal-close").addEventListener("click", closeDrawer);
+  drawerModal.addEventListener("click", event => {
+    if (event.target === drawerModal) closeDrawer();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !drawerModal.hidden) closeDrawer();
+  });
+}
+
