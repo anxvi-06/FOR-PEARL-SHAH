@@ -221,23 +221,30 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
 @keyframes screenReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
 
-/* VINTAGE CRUMPLED PARCHMENT — INVITATION + LETTER */
+/* VISIBLE AGED PARCHMENT — INVITATION, ENVELOPE INSERT + LETTER */
 .invite-inner,
+.envelope-paper,
 .letter-paper{
-  background-color:#ddc79e;
+  background-color:#d8bd8d !important;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse at 12% 18%,#f5e8c9aa 0%,transparent 34%),
-    radial-gradient(ellipse at 88% 78%,#9a704344 0%,transparent 38%),
-    radial-gradient(ellipse at 52% 48%,#f0e1bf 0%,#d8c094 72%,#b99565 100%);
-  background-size:180px 180px,auto,auto,auto;
-  background-blend-mode:multiply,screen,multiply,normal;
-  box-shadow:inset 0 0 32px #78552b33,inset 0 0 5px #fff5;
+    radial-gradient(ellipse at 8% 12%,rgba(255,246,218,.88) 0%,transparent 27%),
+    radial-gradient(ellipse at 92% 84%,rgba(111,68,34,.34) 0%,transparent 32%),
+    radial-gradient(ellipse at 78% 14%,rgba(126,83,43,.20) 0%,transparent 24%),
+    radial-gradient(ellipse at 22% 88%,rgba(255,239,199,.48) 0%,transparent 30%),
+    repeating-linear-gradient(117deg,rgba(94,65,35,.055) 0px,rgba(94,65,35,.055) 1px,transparent 2px,transparent 9px),
+    repeating-linear-gradient(18deg,rgba(255,250,226,.16) 0px,rgba(255,250,226,.16) 1px,transparent 2px,transparent 13px),
+    linear-gradient(135deg,#f0dfb9 0%,#d8bd8d 48%,#c5a575 100%) !important;
+  background-blend-mode:normal,multiply,multiply,screen,multiply,screen,normal;
+  box-shadow:inset 0 0 38px rgba(91,58,28,.28),inset 0 0 8px rgba(255,248,224,.55);
 }
 .invite-inner{
-  border-color:#765b3c;
+  border-color:#765333;
+}
+.envelope-paper{
+  border:1px solid #a17d4e;
+  box-shadow:inset 0 0 22px rgba(91,58,28,.24);
 }
 .letter-paper{
   border-color:#a18458;
-  box-shadow:0 20px 65px #000a,inset 0 0 34px #78552b35,inset 0 0 5px #fff7;
+  box-shadow:0 20px 65px #000a,inset 0 0 42px rgba(91,58,28,.30),inset 0 0 8px rgba(255,248,224,.6);
 }
