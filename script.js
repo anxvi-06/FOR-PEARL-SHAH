@@ -56,3 +56,29 @@ if (envelope && letter) {
 }
 createPetals(7);
 window.setInterval(() => createPetals(2), 5000);
+
+
+// Invitation -> letter: reveal the next screen without navigating to another HTML page.
+const invitationScreen = document.querySelector(".invitation");
+const letterScreen = document.querySelector("#letter-screen");
+const nextToLetter = document.querySelector("#next-to-letter");
+const letterNav = document.querySelector("#letter-nav");
+function revealLetterScreen() {
+  if (!invitationScreen || !letterScreen || letterScreen.classList.contains("screen-active")) return;
+  if (smoke) {
+    smoke.classList.remove("arrive", "play");
+    void smoke.offsetWidth;
+    smoke.classList.add("play");
+  }
+  window.setTimeout(() => {
+    invitationScreen.classList.add("screen-away");
+    letterScreen.classList.add("screen-active");
+    letterScreen.setAttribute("aria-hidden", "false");
+    window.scrollTo({top:0,behavior:"instant"});
+  }, 420);
+}
+if (nextToLetter) nextToLetter.addEventListener("click", revealLetterScreen);
+if (letterNav) letterNav.addEventListener("click", event => {
+  event.preventDefault();
+  revealLetterScreen();
+});
