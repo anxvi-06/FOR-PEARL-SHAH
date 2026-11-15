@@ -377,3 +377,106 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
         transform: translateY(-95px) scale(1);
     }
 }
+
+
+/* STRUCTURAL FIX: LETTER INSIDE THE ENVELOPE WRAPPER */
+.letter-stage{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  min-height:780px;
+  width:min(900px,100%);
+  overflow:visible;
+  perspective:1200px;
+}
+.envelope-wrap{
+  position:relative;
+  width:min(440px, calc(100vw - 48px));
+  height:560px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  isolation:isolate;
+}
+.envelope-wrap .letter-paper{
+  position:absolute !important;
+  left:50%;
+  bottom:105px;
+  z-index:1 !important;
+  width:min(440px, calc(100vw - 48px));
+  max-height:0;
+  min-width:0;
+  height:auto;
+  overflow:hidden;
+  opacity:0;
+  padding:0 44px;
+  border:0 !important;
+  outline:0 !important;
+  transform:translate(-50%, 125px) scale(.72);
+  transform-origin:center bottom;
+  pointer-events:none;
+  transition:
+    transform 1.15s cubic-bezier(.2,.75,.25,1),
+    opacity .45s ease,
+    max-height 1s ease,
+    padding .8s ease;
+}
+.envelope-wrap .letter-paper.is-visible{
+  z-index:6 !important;
+  max-height:1500px;
+  padding:42px 44px 38px;
+  border:1px solid #98754b !important;
+  outline:1px solid #ead5ad !important;
+  outline-offset:-7px;
+  opacity:1;
+  transform:translate(-50%, -75px) scale(1);
+  pointer-events:auto;
+}
+.envelope-wrap .envelope{
+  position:absolute !important;
+  left:50%;
+  bottom:0;
+  z-index:5 !important;
+  transform:translateX(-50%);
+  margin:0;
+}
+.envelope-wrap .envelope:hover{
+  transform:translate(-50%, -5px);
+}
+.envelope-wrap .envelope.is-open{
+  transform:translateX(-50%);
+}
+.envelope-wrap .envelope.is-open .envelope-flap{
+  transform:rotateX(180deg);
+  z-index:0;
+}
+.envelope-wrap .envelope.is-open .envelope-paper{
+  transform:translateY(-115px);
+  transition-delay:.25s;
+}
+.envelope-wrap .envelope.is-open .wax-seal,
+.envelope-wrap .envelope.is-open .envelope-label{
+  opacity:0;
+  transition:opacity .25s ease;
+}
+@media(max-width:800px){
+  .letter-stage{min-height:900px}
+  .envelope-wrap{
+    width:calc(100vw - 40px);
+    height:720px;
+  }
+  .envelope-wrap .envelope{
+    width:min(350px,85vw);
+  }
+  .envelope-wrap .letter-paper{
+    width:calc(100vw - 40px);
+    padding:0 28px;
+    bottom:105px;
+    transform:translate(-50%,125px) scale(.68);
+  }
+  .envelope-wrap .letter-paper.is-visible{
+    max-height:1600px;
+    padding:38px 28px 34px;
+    transform:translate(-50%,-75px) scale(1);
+  }
+}
