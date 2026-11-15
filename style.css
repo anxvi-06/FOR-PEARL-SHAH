@@ -211,3 +211,11 @@ radial-gradient(ellipse at 88% 42%,#260b18 0%,transparent 52%);filter:blur(25px)
   .letter-paper.is-visible{flex:0 1 auto;width:100%;max-height:900px;padding:42px 35px;border:1px solid #a88a5e;outline:1px solid #ddc89f;outline-offset:-7px}
   .letter-stage:has(.letter-paper.is-visible){gap:30px}
 }
+
+
+/* INVITATION TO LETTER: SAME DOCUMENT, NEXT SCREEN */
+.letter-screen{display:none;opacity:0;transform:translateY(18px)}
+.letter-screen.screen-active{display:block;animation:screenReveal .85s ease both}
+.invitation.screen-away{display:none}
+.next-screen{cursor:pointer;margin-top:34px}
+@keyframes screenReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
