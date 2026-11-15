@@ -121,7 +121,18 @@ if (archiveCards.length) {
   archiveCards.forEach(card => {
     card.addEventListener("click", () => {
       drawerModal.querySelector("#drawer-modal-title").textContent = card.dataset.title;
-      drawerModal.querySelector(".modal-copy").textContent = card.dataset.copy;
+      const modalCopy = drawerModal.querySelector(".modal-copy");
+      modalCopy.textContent = card.dataset.copy;
+      if (card.dataset.link) {
+        const songLink = document.createElement("a");
+        songLink.href = card.dataset.link;
+        songLink.target = "_blank";
+        songLink.rel = "noopener noreferrer";
+        songLink.textContent = "PLAY OUR SONG ↗";
+        songLink.className = "drawer-song-link";
+        modalCopy.appendChild(document.createElement("br"));
+        modalCopy.appendChild(songLink);
+      }
       drawerModal.hidden = false;
       document.body.classList.add("drawer-open");
       drawerModal.querySelector(".modal-close").focus();
